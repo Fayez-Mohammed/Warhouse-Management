@@ -1,0 +1,188 @@
+# Feature: EN/AR Language Switcher with full RTL support
+
+## Context
+The dashboard is English-only. The user wants a sleek EN | AR toggle in the top-right of the dashboard header. When Arabic is selected, every visible static string switches to Arabic, and the layout must flip to RTL. Persistence via localStorage.
+
+---
+
+## Architecture: React Context + translation keys
+
+### New file: `src/lib/i18n.tsx`
+- Export `LangContext` with `{ lang, setLang, t, isRTL }`
+- `lang: "en" | "ar"`, persisted in `localStorage("lang")`
+- `t(key: string): string` — looks up `translations[lang][key]`, falls back to key
+- On `lang` change: set `document.documentElement.dir = isRTL ? "rtl" : "ltr"` and `document.documentElement.lang`
+- Export `useLang()` convenience hook
+- Export `LangProvider` wrapper component with full EN + AR translation maps
+
+### New file: `src/components/LangSwitcher.tsx`
+- `[ EN | AR ]` pill — border border-border, rounded-lg
+- Active lang: `text-foreground font-semibold`, inactive: `text-muted-foreground`
+- Vertical divider between the two options
+- Calls `setLang()` from `useLang()`
+
+---
+
+## Arabic Font
+Add to `src/styles/fonts.css`:
+```css
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap');
+```
+Add to `src/styles/theme.css` (inside `:root[dir="rtl"]` or via Tailwind):
+```css
+html[dir="rtl"] { font-family: 'Cairo', sans-serif; }
+```
+
+---
+
+## Files to modify
+
+### `src/app/App.tsx`
+- Wrap root with `<LangProvider>` (outermost, wrapping everything including `<Toaster>`)
+- Session-expired toast uses `t("sessionExpired")`
+
+### `src/pages/dashboard/Dashboard.tsx`
+- Import `LangSwitcher` from `../../components/LangSwitcher`
+- Import `useLang` — replace all NAV_SECTIONS `label` values with `t()` calls
+- Replace section header strings with `t()` calls
+- Replace "Sign out", "Expand/Collapse sidebar" with `t()` calls
+- Place `<LangSwitcher />` in the top-right toolbar (same row as theme toggle + logout button)
+- RTL: sidebar position already handles itself via `dir` attribute on `<html>`; ChevronLeft/Right icons swap when `isRTL`
+
+### `src/pages/auth/LoginPage.tsx` + `OtpPage.tsx`
+- Import `useLang`, replace static strings with `t()` calls
+- Add `<LangSwitcher />` top-right corner (absolute positioned)
+
+### All feature pages — replace static strings with `t()`:
+Pattern per file: add `const { t } = useLang();` at top of component, then replace strings.
+- `src/pages/overview/OverviewPage.tsx`
+- `src/pages/categories/CategoriesPage.tsx`
+- `src/pages/products/ProductsPage.tsx`
+- `src/pages/orders/OrdersPage.tsx`
+- `src/pages/reports/ReportsPage.tsx`
+- `src/pages/inventory-check/InventoryCheckPage.tsx`
+- `src/pages/users/UsersPage.tsx`
+- `src/pages/invoices/InvoicesPage.tsx`
+- `src/pages/cheques/ChequesPage.tsx`
+- `src/pages/expenses/ExpensesPage.tsx`
+
+Modal files (titles, labels, buttons, placeholders, toast messages):
+- categories: `CategoryModal.tsx`, `CategoryDeleteModal.tsx`
+- products: `ProductCreateModal.tsx`, `ProductEditModal.tsx`, `StockInModal.tsx`, `ProductDeleteModal.tsx`
+- orders: `CreateDirectOrderModal.tsx`, `CollectPaymentModal.tsx`
+- invoices: `PaySupplierModal.tsx`, `InvoiceProductsModal.tsx`
+- users: `UserModal.tsx`, `UserDeleteModal.tsx`, `CustomerAccountModal.tsx`, `SupplierAccountModal.tsx`
+- cheques: `ChequeModal.tsx`, `ChequeStatusModal.tsx`
+- expenses: inline `ExpenseModal` + `DeleteModal` inside `ExpensesPage.tsx`
+
+---
+
+## Translation Key Reference
+
+```
+// Nav
+nav_overview, nav_categories, nav_products, nav_orders, nav_reports,
+nav_inventoryCheck, nav_invoices, nav_cheques, nav_expenses, nav_users
+section_inventory, section_operations, section_finance, section_contacts
+sidebar_expand, sidebar_collapse, btn_signOut
+
+// Auth
+login_title, login_subtitle, login_email, login_emailOptional,
+login_emailPlaceholder, login_password, login_passwordPlaceholder,
+login_submit, login_secured, login_tagline, login_taglineDesc
+otp_title, otp_subtitle, otp_submit, otp_back
+
+// Overview
+overview_title, overview_subtitle
+period_today, period_week, period_month, period_custom
+date_from, date_to, btn_apply
+stat_totalSales, stat_totalProfit, stat_approvedOrders
+lowStock_title, lowStock_allGood
+
+// Categories
+categories_title, categories_subtitle, btn_newCategory
+search_byName, empty_categories, lbl_name, lbl_description
+
+// Products
+products_title, products_subtitle
+btn_addProducts, btn_stockIn, btn_returnSupplier
+search_productName, empty_products
+
+// Orders
+orders_title, orders_subtitle, btn_newDirectSale, empty_orders
+tooltip_collectPayment, tooltip_processReturn
+
+// Reports
+reports_title, tab_salesReport, tab_stockMovement,
+tab_customer, tab_salesRep, tab_supplier
+
+// Inventory Check
+invCheck_title, invCheck_subtitle
+lbl_productName, lbl_actualCount, placeholder_qty
+btn_preview, btn_reset, btn_applyAdjustment, btn_newCheck
+preview_title, lbl_systemQty, lbl_difference
+status_surplus, status_deficit, status_balanced
+lbl_financialImpact, invCheck_hint
+
+// Users
+users_title, users_subtitle
+tab_customers, tab_salesReps, tab_suppliers
+filter_all, filter_active, filter_inactive
+status_active, status_inactive, tooltip_viewAccount
+
+// Invoices
+invoices_title, invoices_subtitle
+filter_allTypes, btn_clearFilters
+tooltip_viewProducts, tooltip_paySupplier
+
+// Cheques
+cheques_title, cheques_subtitle, btn_newCheque
+dir_incoming, dir_outgoing
+status_pending, status_collected, status_paid, status_rejected, status_cancelled
+
+// Expenses
+expenses_title, expenses_subtitle, btn_newExpense
+lbl_amount, lbl_description, empty_expenses
+
+// Shared
+col_code, col_product, col_sku, col_qty, col_category,
+col_salePrice, col_buyPrice, col_order, col_customer, col_salesRep,
+col_total, col_commission, col_status, col_date, col_type,
+col_recipient, col_amount, col_paid, col_remaining, col_progress,
+col_direction, col_chequeNo, col_person, col_bank, col_dueDate,
+col_issued, col_name, col_phone, col_created, col_description,
+col_createdAt, col_accountant
+btn_cancel, btn_save, btn_delete, btn_confirm, btn_newItem
+lbl_notes, lbl_search, pagination_page, pagination_showing
+
+sessionExpired
+```
+
+**Key Arabic values:**
+- nav_overview → "نظرة عامة", nav_categories → "الفئات", nav_products → "المنتجات"
+- nav_orders → "الطلبات", nav_reports → "التقارير", nav_inventoryCheck → "جرد المخزون"
+- nav_invoices → "الفواتير", nav_cheques → "الشيكات", nav_expenses → "المصروفات"
+- nav_users → "المستخدمون", section_inventory → "المخزون", section_operations → "العمليات"
+- section_finance → "المالية", section_contacts → "جهات الاتصال"
+- btn_signOut → "تسجيل الخروج", login_title → "تسجيل الدخول"
+- login_tagline → "رؤية كاملة على مخزونك", btn_cancel → "إلغاء", btn_save → "حفظ"
+- btn_delete → "حذف", sessionExpired → "انتهت الجلسة. يرجى تسجيل الدخول مجدداً."
+- (full map written in i18n.tsx)
+
+---
+
+## RTL layout notes
+1. Setting `document.documentElement.dir = "rtl"` handles most flex/grid flipping automatically
+2. Directional icons (ChevronLeft↔ChevronRight, ArrowLeft↔ArrowRight) swap using `isRTL` from context
+3. Monetary amounts & codes stay LTR: wrap in `<span dir="ltr" className="font-mono">` where needed
+4. Sidebar collapse animation is direction-agnostic (uses `width` transition)
+
+---
+
+## Verification
+1. EN→AR: all sidebar labels, page titles, table headers, buttons show Arabic
+2. Layout flips to RTL (sidebar on right, text right-aligned, icons mirrored)
+3. AR→EN: everything reverts
+4. `localStorage("lang")` persists across refresh
+5. Login page respects language setting and shows LangSwitcher
+6. Numbers/codes/amounts stay LTR inside RTL layout

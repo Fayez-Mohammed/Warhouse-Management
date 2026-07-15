@@ -1,0 +1,533 @@
+Users
+
+
+GET
+/api/users/list
+جلب جميع المستخدمين مع خيارات التصفية والصفحة
+
+
+Parameters
+Cancel
+Name	Description
+search
+string
+(query)
+search
+userType
+string
+(query)
+
+--
+isActive
+boolean
+(query)
+
+--
+page
+integer($int32)
+(query)
+1
+pageSize
+integer($int32)
+(query)
+20
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/users/list?page=1&pageSize=20' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/users/list?page=1&pageSize=20
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "4000344d-0002-1400-b63f-84710c7967bb",
+  "users": [
+    {
+      "id": "06dc9c92-d969-415e-a310-6d23fb6f4e40",
+      "usernumber": 10,
+      "fullname": "Fayez NeWCustomer",
+      "phonenumber": "019228384374",
+      "usertype": "Customer",
+      "isactive": true,
+      "dateofcreation": "2026-02-08T01:32:21.3108102"
+    },
+    {
+      "id": "8b083fe8-97f1-4928-a755-17bcbeafd9e4",
+      "usernumber": 21,
+      "fullname": "Islam mohammed",
+      "phonenumber": "01144229043",
+      "usertype": "Customer",
+      "isactive": true,
+      "dateofcreation": "2026-07-14T15:40:20.4263661"
+    },
+    {
+      "id": "33c80957-af3c-4097-90be-3c03e8613e70",
+      "usernumber": 3,
+      "fullname": "احمد عميل",
+      "phonenumber": "01827636526",
+      "usertype": "Customer",
+      "isactive": true,
+      "dateofcreation": "2026-02-03T19:24:16.0380493"
+    },
+    {
+      "id": "b27142b1-02b3-4644-af84-edd5652f7ddd",
+      "usernumber": 4,
+      "fullname": "احمد محمد مندوب",
+      "phonenumber": "010182736663",
+      "usertype": "SalesRep",
+      "isactive": false,
+      "dateofcreation": "2026-02-03T19:24:40.8914238"
+    },
+    {
+      "id": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712",
+      "usernumber": 5,
+      "fullname": "احمد محمد مورد",
+      "phonenumber": "01283877332",
+      "usertype": "Supplier",
+      "isactive": true,
+      "dateofcreation": "2026-02-03T19:25:00.7691276"
+    },
+    {
+      "id": "e7a8dc1f-d301-4fe7-aad6-8ff79652aab7",
+      "usernumber": 8,
+      "fullname": "ادهم علاء",
+      "phonenumber": "01094029794",
+      "usertype": "User",
+      "isactive": true,
+      "dateofcreation": "2026-02-07T23:16:25.4862468"
+    },
+    {
+      "id": "7ad3a3c2-5909-401c-8a0b-5ec2af30ce64",
+      "usernumber": 7,
+      "fullname": "طه انور طه",
+      "phonenumber": "01003843929",
+      "usertype": "Customer",
+      "isactive": true,
+      "dateofcreation": "2026-02-07T23:16:13.0068374"
+    }
+  ],
+  "totalcount": 7,
+  "filteredcount": 7
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 13:40:48 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "users": [
+    {
+      "id": "string",
+      "usernumber": 0,
+      "fullname": "string",
+      "phonenumber": "string",
+      "usertype": "SystemAdmin",
+      "isactive": true,
+      "dateofcreation": "2026-07-14T13:42:21.366Z"
+    }
+  ],
+  "totalcount": 0,
+  "filteredcount": 0
+}
+No links
+
+GET
+/api/users/get-user
+جلب مستخدم بواسطة المعرف
+
+
+Parameters
+Cancel
+Name	Description
+id
+string
+(query)
+06dc9c92-d969-415e-a310-6d23fb6f4e40
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/users/get-user?id=06dc9c92-d969-415e-a310-6d23fb6f4e40' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/users/get-user?id=06dc9c92-d969-415e-a310-6d23fb6f4e40
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40002ca1-0002-4a00-b63f-84710c7967bb",
+  "id": "06dc9c92-d969-415e-a310-6d23fb6f4e40",
+  "usernumber": 10,
+  "fullname": "Fayez NeWCustomer",
+  "phonenumber": "019228384374",
+  "usertype": "Customer",
+  "isactive": true,
+  "dateofcreation": "2026-02-08T01:32:21.3108102"
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 13:40:56 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "string",
+  "usernumber": 0,
+  "fullname": "string",
+  "phonenumber": "string",
+  "usertype": "SystemAdmin",
+  "isactive": true,
+  "dateofcreation": "2026-07-14T13:42:21.368Z"
+}
+No links
+
+POST
+/api/users/create
+انشذاء مستخدم جديد
+
+
+Parameters
+Cancel
+Reset
+Name	Description
+userType
+string
+(query)
+
+Customer
+Request body
+
+application/json
+{
+  "fullname": "Islam mohammed",
+  "phonenumber": "01144229043"
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'POST' \
+  'https://warhouse-management.runasp.net/api/users/create?userType=Customer' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "fullname": "Islam mohammed",
+  "phonenumber": "01144229043"
+}'
+Request URL
+https://warhouse-management.runasp.net/api/users/create?userType=Customer
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "400010e1-0001-c800-b63f-84710c7967bb",
+  "id": "8b083fe8-97f1-4928-a755-17bcbeafd9e4",
+  "usernumber": 21,
+  "fullname": "Islam mohammed",
+  "phonenumber": "01144229043",
+  "usertype": "Customer",
+  "isactive": true,
+  "dateofcreation": "2026-07-14T15:40:20.4263661+02:00"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 13:40:20 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "string",
+  "usernumber": 0,
+  "fullname": "string",
+  "phonenumber": "string",
+  "usertype": "SystemAdmin",
+  "isactive": true,
+  "dateofcreation": "2026-07-14T13:42:21.369Z"
+}
+No links
+
+PUT
+/api/users/update
+تحديث بيانات المستخدم
+
+
+Parameters
+Cancel
+Reset
+Name	Description
+id
+string
+(query)
+8b083fe8-97f1-4928-a755-17bcbeafd9e4
+Request body
+
+application/json
+{
+  "fullname": "Islam ahmed",
+  "phonenumber": "01244229034",
+  "usertype": "Customer",
+  "isactive": true
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'PUT' \
+  'https://warhouse-management.runasp.net/api/users/update?id=8b083fe8-97f1-4928-a755-17bcbeafd9e4' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "fullname": "Islam ahmed",
+  "phonenumber": "01244229034",
+  "usertype": "Customer",
+  "isactive": true
+}'
+Request URL
+https://warhouse-management.runasp.net/api/users/update?id=8b083fe8-97f1-4928-a755-17bcbeafd9e4
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40002e08-0002-4800-b63f-84710c7967bb",
+  "id": "8b083fe8-97f1-4928-a755-17bcbeafd9e4",
+  "usernumber": 21,
+  "fullname": "Islam ahmed",
+  "phonenumber": "01244229034",
+  "usertype": "Customer",
+  "isactive": true,
+  "dateofcreation": "2026-07-14T15:40:20.4263661"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 13:41:47 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "string",
+  "usernumber": 0,
+  "fullname": "string",
+  "phonenumber": "string",
+  "usertype": "SystemAdmin",
+  "isactive": true,
+  "dateofcreation": "2026-07-14T13:42:21.371Z"
+}
+No links
+
+PATCH
+/api/users/toggle-active
+عكس حالة التفعيل للمستخدم
+
+
+Parameters
+Cancel
+Name	Description
+id
+string
+(query)
+8b083fe8-97f1-4928-a755-17bcbeafd9e4
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'PATCH' \
+  'https://warhouse-management.runasp.net/api/users/toggle-active?id=8b083fe8-97f1-4928-a755-17bcbeafd9e4' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/users/toggle-active?id=8b083fe8-97f1-4928-a755-17bcbeafd9e4
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "400023ca-0004-a800-b63f-84710c7967bb"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 13:42:05 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+DELETE
+/api/users/delete
+حذف مستخدم
+
+
+Parameters
+Cancel
+Name	Description
+id
+string
+(query)
+8b083fe8-97f1-4928-a755-17bcbeafd9e4
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'DELETE' \
+  'https://warhouse-management.runasp.net/api/users/delete?id=8b083fe8-97f1-4928-a755-17bcbeafd9e4' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/users/delete?id=8b083fe8-97f1-4928-a755-17bcbeafd9e4
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40003b60-0800-b500-b63f-84710c7967bb"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 13:42:13 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/users/current-user
+جلب بيانات المستخدم الحالي
+
+
+Parameters
+Cancel
+No parameters
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/users/current-user' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/users/current-user
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "400040c1-0002-4300-b63f-84710c7967bb",
+  "id": "b037c770-90ae-4d2d-9e89-c198b7f4e166",
+  "usernumber": 0,
+  "fullname": "System Admin",
+  "phonenumber": null,
+  "usertype": "SystemAdmin",
+  "isactive": true,
+  "dateofcreation": "0001-01-01T00:00:00"
+}

@@ -1,0 +1,356 @@
+POST
+/api/Orders/create-direct
+إنشاء بيع مباشر وفاتورة فورية من الإدارة نيابة عن عميل ومندوب.
+
+
+تستخدم هذه الدالة للبيع المباشر من داخل مقر المخزن، وتقوم بحفظ الطلب وصرف البضاعة واعتمادها في خطوة واحدة.
+
+Parameters
+Cancel
+Reset
+Name	Description
+CommissionPercentage
+number($double)
+(query)
+نسبة عمولة المندوب إن وُجد (الافتراضي 1.75%)
+
+1.75
+Request body
+
+application/json
+بيانات العميل والأصناف والكميات المراد بيعها
+
+{
+  "salesrepname": "احمد محمد مندوب",
+  "customername": "Fayez NeWCustomer",
+  "phonenumber": "01027016323",
+  "items": [
+    {
+      "productname": "سكرر",
+      "quantity": 4
+    }
+  ]
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'POST' \
+  'https://warhouse-management.runasp.net/api/Orders/create-direct?CommissionPercentage=1.75' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "salesrepname": "احمد محمد مندوب",
+  "customername": "Fayez NeWCustomer",
+  "phonenumber": "01027016323",
+  "items": [
+    {
+      "productname": "سكرر",
+      "quantity": 4
+    }
+  ]
+}'
+Request URL
+https://warhouse-management.runasp.net/api/Orders/create-direct?CommissionPercentage=1.75
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "تم إنشاء الطلب وتأكيده وصرف البضاعة فوراً من الإدارة بنجاح.",
+  "traceId": "4000159f-0004-9e00-b63f-84710c7967bb",
+  "ordercode": "18283ab1-7131-4a4d-9a2c-83596df2da16"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Mon,13 Jul 2026 20:31:30 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Orders/confirmed
+جلب جميع طلبات المبيعات المؤكدة والمنتظرة للاعتماد (Confirmed Orders).
+
+
+
+GET
+/api/Orders/approved
+جلب جميع طلبات المبيعات التي تمت الموافقة عليها وصرفها نهائياً (Approved Orders).
+
+
+Parameters
+Cancel
+Name	Description
+skip
+integer($int32)
+(query)
+0
+take
+integer($int32)
+(query)
+10
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Orders/approved?skip=0&take=10' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg'
+Request URL
+https://warhouse-management.runasp.net/api/Orders/approved?skip=0&take=10
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "400013e3-0800-ee00-b63f-84710c7967bb",
+  "value": [
+    {
+      "id": "18283ab1-7131-4a4d-9a2c-83596df2da16",
+      "code": 6,
+      "totalamount": 200,
+      "commissionamount": 3.5,
+      "status": "Approved",
+      "customername": "Fayez NeWCustomer",
+      "salesrepname": "احمد محمد مندوب",
+      "dateofcreation": "2026-07-13T20:31:30.1921231"
+    },
+    {
+      "id": "88f321e4-9c50-4b88-975c-d0bcfaa3deb4",
+      "code": 5,
+      "totalamount": 120,
+      "commissionamount": 2.1,
+      "status": "Approved",
+      "customername": "طه انور طه",
+      "salesrepname": "احمد محمد مندوب",
+      "dateofcreation": "2026-06-09T15:35:44.0461193"
+    },
+    {
+      "id": "e500a80d-7134-4454-b787-7ba4d5b084cb",
+      "code": 4,
+      "totalamount": 47000,
+      "commissionamount": 0,
+      "status": "Approved",
+      "customername": "Fayez NeWCustomer",
+      "salesrepname": null,
+      "dateofcreation": "2026-02-07T23:32:23.2392915"
+    },
+    {
+      "id": "0f750584-f390-4901-b642-c70c993cd20a",
+      "code": 3,
+      "totalamount": 500,
+      "commissionamount": 0,
+      "status": "Approved",
+      "customername": "طه انور طه",
+      "salesrepname": null,
+      "dateofcreation": "2026-02-07T22:17:14.4833374"
+    },
+    {
+      "id": "5b3fc085-5f74-4475-aa4e-e2ed84124068",
+      "code": 2,
+      "totalamount": 15000,
+      "commissionamount": 262.5,
+      "status": "Approved",
+      "customername": "احمد عميل",
+      "salesrepname": "احمد محمد مندوب",
+      "dateofcreation": "2026-02-05T12:49:28.4341721"
+    },
+    {
+      "id": "d05f0219-ec91-4686-8a27-e06616cfa4f2",
+      "code": 1,
+      "totalamount": 120000,
+      "commissionamount": 2100,
+      "status": "Approved",
+      "customername": "احمد عميل",
+      "salesrepname": "احمد محمد مندوب",
+      "dateofcreation": "2026-02-03T18:28:22.0651848"
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Mon,13 Jul 2026 20:32:45 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Orders/customers/autocomplete
+البحث التلقائي السريع عن العملاء بالاسم لعرض اقتراحات الصناديق المنسدلة (Autocomplete).
+
+
+Parameters
+Cancel
+Name	Description
+term
+string
+(query)
+الحروف الأولى من اسم العميل المراد البحث عنه
+
+F
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Orders/customers/autocomplete?term=F' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg'
+Request URL
+https://warhouse-management.runasp.net/api/Orders/customers/autocomplete?term=F
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "4000033a-0000-c200-b63f-84710c7967bb",
+  "value": [
+    {
+      "id": "06dc9c92-d969-415e-a310-6d23fb6f4e40",
+      "usernumber": 10,
+      "fullname": "Fayez NeWCustomer"
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Mon,13 Jul 2026 20:33:05 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Orders/salesrep/autocomplete
+البحث التلقائي السريع عن مناديب المبيعات بالاسم لعرض الاقتراحات (Autocomplete).
+
+
+Parameters
+Cancel
+Name	Description
+term
+string
+(query)
+الحروف الأولى من اسم المندوب المراد البحث عنه
+
+اح
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Orders/salesrep/autocomplete?term=%D8%A7%D8%AD' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg'
+Request URL
+https://warhouse-management.runasp.net/api/Orders/salesrep/autocomplete?term=%D8%A7%D8%AD
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40000f55-1005-4a00-b63f-84710c7967bb",
+  "value": [
+    {
+      "id": "b27142b1-02b3-4644-af84-edd5652f7ddd",
+      "usernumber": 4,
+      "fullname": "احمد محمد مندوب"
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Mon,13 Jul 2026 20:34:03 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Orders/supplier/autocomplete
+البحث التلقائي السريع عن الشركات الموردة بالاسم لعرض الاقتراحات (Autocomplete).
+
+
+Parameters
+Cancel
+Name	Description
+term
+string
+(query)
+الحروف الأولى من اسم المورد المراد البحث عنه
+
+ا
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Orders/supplier/autocomplete?term=%D8%A7' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg'
+Request URL
+https://warhouse-management.runasp.net/api/Orders/supplier/autocomplete?term=%D8%A7
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "400039d2-0004-9d00-b63f-84710c7967bb",
+  "value": [
+    {
+      "id": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712",
+      "usernumber": 5,
+      "fullname": "احمد محمد مورد"
+    }
+  ]
+}

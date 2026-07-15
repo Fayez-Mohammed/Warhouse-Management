@@ -1,0 +1,338 @@
+GET
+/api/Invoices/salesrep/remaining-amount
+جلب المبالغ المصروفة والمتبقية من عمولة المندوب لطلب معين بواسطة معرف الطلب.
+
+
+Parameters
+Cancel
+Name	Description
+orderId
+string
+(query)
+معرف طلب البيع
+
+18283ab1-7131-4a4d-9a2c-83596df2da16
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Invoices/salesrep/remaining-amount?orderId=18283ab1-7131-4a4d-9a2c-83596df2da16' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiJiYmVhMmVmNS00ZjFhLTRlZGYtOWM5Ni0xNDY0YmQ5MmRlZWYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NDY4OTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.iKpKE8goww4CaerZJ7Kxkkh__mcBhJ-N5dNp4-Mxtcw'
+Request URL
+https://warhouse-management.runasp.net/api/Invoices/salesrep/remaining-amount?orderId=18283ab1-7131-4a4d-9a2c-83596df2da16
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40002648-0002-a100-b63f-84710c7967bb",
+  "total": 3.5,
+  "paidamount": 0,
+  "remainingamount": 3.5,
+  "salesrepname": "احمد محمد مندوب"
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 15:17:24 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+PUT
+/api/Invoices/supplier/pay
+سداد دفعة نقدية للمورد لحساب فاتورة توريد مشتريات أو فاتورة مرتجع مشتريات.
+
+
+Parameters
+Cancel
+Name	Description
+SupplierInvoiceId
+string
+(query)
+معرف أو كود فاتورة المورد الرقمية
+
+dd744143-3559-4c86-91e3-5333a2e5e309
+PayiedAmount
+number($double)
+(query)
+المبلغ النقدي المسدد حسابه للمورد
+
+20
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'PUT' \
+  'https://warhouse-management.runasp.net/api/Invoices/supplier/pay?SupplierInvoiceId=dd744143-3559-4c86-91e3-5333a2e5e309&PayiedAmount=20' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiJiYmVhMmVmNS00ZjFhLTRlZGYtOWM5Ni0xNDY0YmQ5MmRlZWYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NDY4OTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.iKpKE8goww4CaerZJ7Kxkkh__mcBhJ-N5dNp4-Mxtcw'
+Request URL
+https://warhouse-management.runasp.net/api/Invoices/supplier/pay?SupplierInvoiceId=dd744143-3559-4c86-91e3-5333a2e5e309&PayiedAmount=20
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40000605-0004-8500-b63f-84710c7967bb",
+  "amount": 81,
+  "paidamount": 20,
+  "remainingamount": 61,
+  "supplier": "احمد محمد مورد"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 15:18:21 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Invoices/supplier/summary
+جلب كشف حساب وملخص مالي إجمالي لكافة فواتير التوريد والمرتجعات الخاصة بمورد معين.
+
+
+Parameters
+Cancel
+Name	Description
+supplierId
+string
+(query)
+المعرف الفرعي (Guid) لحساب المورد
+
+e207e2e3-c8ef-4c7b-8b72-3464c4c6e712
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Invoices/supplier/summary?supplierId=e207e2e3-c8ef-4c7b-8b72-3464c4c6e712' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiJiYmVhMmVmNS00ZjFhLTRlZGYtOWM5Ni0xNDY0YmQ5MmRlZWYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NDY4OTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.iKpKE8goww4CaerZJ7Kxkkh__mcBhJ-N5dNp4-Mxtcw'
+Request URL
+https://warhouse-management.runasp.net/api/Invoices/supplier/summary?supplierId=e207e2e3-c8ef-4c7b-8b72-3464c4c6e712
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40002f97-0002-7500-b63f-84710c7967bb",
+  "supplycount": 8,
+  "supplytotalamount": 729000,
+  "supplypaidamount": 127000,
+  "supplyremainingamount": 602000,
+  "returnscount": 3,
+  "returnstotalamount": 70206,
+  "returnspaidamount": 10020,
+  "returnsremainingamount": 60186,
+  "invoices": [
+    {
+      "id": "dd744143-3559-4c86-91e3-5333a2e5e309",
+      "code": 11,
+      "type": 5,
+      "suppliername": "احمد محمد مورد",
+      "amount": 81,
+      "paidamount": 20,
+      "remainingamount": 61,
+      "generateddate": "2026-07-14T12:44:54.373404",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "6c6f0948-7046-4101-89ab-6b52bd1636de",
+      "code": 10,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 160,
+      "paidamount": 0,
+      "remainingamount": 160,
+      "generateddate": "2026-07-13T20:13:31.5054518",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "fa2ab3f3-0d4b-41e0-8e11-5f8cfc05e54a",
+      "code": 9,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 150000,
+      "paidamount": 0,
+      "remainingamount": 150000,
+      "generateddate": "2026-07-13T20:09:18.2758712",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "fdcf8c02-98c9-4a91-b984-f6958e3cbd05",
+      "code": 8,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 300,
+      "paidamount": 0,
+      "remainingamount": 300,
+      "generateddate": "2026-06-10T18:59:04.656119",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "3a672182-1d82-4964-9483-90ae54a8fa03",
+      "code": 7,
+      "type": 5,
+      "suppliername": "احمد محمد مورد",
+      "amount": 125,
+      "paidamount": 0,
+      "remainingamount": 125,
+      "generateddate": "2026-06-09T16:49:33.1797996",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "5f0506ca-0cb4-435d-8439-47da1dcff8a4",
+      "code": 6,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 40,
+      "paidamount": 0,
+      "remainingamount": 40,
+      "generateddate": "2026-06-09T14:19:23.7652895",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "a35106d0-b43e-4c70-9643-97a522754bfd",
+      "code": 5,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 1000,
+      "paidamount": 0,
+      "remainingamount": 1000,
+      "generateddate": "2026-06-09T13:38:03.3603795",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "e3868b5e-9f8b-4963-b542-9ed8bea6939b",
+      "code": 4,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 500,
+      "paidamount": 0,
+      "remainingamount": 500,
+      "generateddate": "2026-06-09T13:37:19.4324731",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "8fa8d36c-0ca3-4ba4-a3ea-7eb18fc067dc",
+      "code": 3,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 2000,
+      "paidamount": 2000,
+      "remainingamount": 0,
+      "generateddate": "2026-02-05T16:30:25.384056",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "293dd263-9661-484c-85d5-414017f0a7a2",
+      "code": 2,
+      "type": 5,
+      "suppliername": "احمد محمد مورد",
+      "amount": 70000,
+      "paidamount": 10000,
+      "remainingamount": 60000,
+      "generateddate": "2026-02-03T18:33:10.6545324",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    },
+    {
+      "id": "b8cee339-7315-4866-acc1-dcee8c4f1f83",
+      "code": 1,
+      "type": 3,
+      "suppliername": "احمد محمد مورد",
+      "amount": 575000,
+      "paidamount": 125000,
+      "remainingamount": 450000,
+      "generateddate": "2026-02-03T18:27:35.6180869",
+      "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 15:19:26 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Invoices/supplier/last
+جلب فاتورة المشتريات والتوريد الرسمية الأخيرة المسجلة لمورد معين.
+
+
+Parameters
+Cancel
+Name	Description
+supplierId
+string
+(query)
+المعرف الفرعي لحساب المورد
+
+e207e2e3-c8ef-4c7b-8b72-3464c4c6e712
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Invoices/supplier/last?supplierId=e207e2e3-c8ef-4c7b-8b72-3464c4c6e712' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiJiYmVhMmVmNS00ZjFhLTRlZGYtOWM5Ni0xNDY0YmQ5MmRlZWYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NDY4OTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.iKpKE8goww4CaerZJ7Kxkkh__mcBhJ-N5dNp4-Mxtcw'
+Request URL
+https://warhouse-management.runasp.net/api/Invoices/supplier/last?supplierId=e207e2e3-c8ef-4c7b-8b72-3464c4c6e712
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40002f9f-0002-7500-b63f-84710c7967bb",
+  "id": "6c6f0948-7046-4101-89ab-6b52bd1636de",
+  "code": 10,
+  "type": 3,
+  "suppliername": "احمد محمد مورد",
+  "amount": 160,
+  "paidamount": 0,
+  "remainingamount": 160,
+  "generateddate": "2026-07-13T20:13:31.5054518",
+  "supplierid": "e207e2e3-c8ef-4c7b-8b72-3464c4c6e712"
+}

@@ -1,0 +1,469 @@
+Cheques
+
+
+POST
+/api/Cheques/add
+تسجيل شيك بنكي جديد بالمنظومة (سواء كان وارداً من عميل أو صادراً لمورد)
+
+
+Parameters
+Cancel
+Reset
+No parameters
+
+Request body
+
+application/json
+{
+  "checknumber": "34543434",
+  "amount": 30,
+  "duedate": "2026-07-27T16:57:53.618Z",
+  "bankname": "الاهلي",
+  "isincoming": true,
+  "relatedname": "Fayez NeWCustomer",
+  "notes": "incoming cheque",
+  "invoiceid": "322e6d13-f568-4b7f-9b57-f5d47c26238a",
+  "supplierinvoiceid": ""
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'POST' \
+  'https://warhouse-management.runasp.net/api/Cheques/add' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI4Nzc5MTk5Zi0xYzY0LTQzYzYtOGVjZS00MWI2NzRjMDFmOWEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NTMwNDksImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.YcNVCBmomQtnPLYEs_GEu9ne38yOw4P3oxhIwS9uwJk' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "checknumber": "34543434",
+  "amount": 30,
+  "duedate": "2026-07-27T16:57:53.618Z",
+  "bankname": "الاهلي",
+  "isincoming": true,
+  "relatedname": "Fayez NeWCustomer",
+  "notes": "incoming cheque",
+  "invoiceid": "322e6d13-f568-4b7f-9b57-f5d47c26238a",
+  "supplierinvoiceid": ""
+}'
+Request URL
+https://warhouse-management.runasp.net/api/Cheques/add
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "تم تسجيل وحفظ الشيك البنكي بنجاح بنظام الحسابات.",
+  "traceId": "4000099e-1005-5900-b63f-84710c7967bb",
+  "code": 14
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 17:00:00 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Cheques/list
+عرض كشف بكافة الشيكات البنكية مع إمكانيات تصفية متقدمة بالاسم، النوع، أو الحالة
+
+
+Parameters
+Cancel
+Name	Description
+searchName
+string
+(query)
+searchName
+direction
+string
+(query)
+
+--
+status
+string
+(query)
+
+--
+skip
+integer($int32)
+(query)
+0
+take
+integer($int32)
+(query)
+10
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Cheques/list?skip=0&take=10' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI4Nzc5MTk5Zi0xYzY0LTQzYzYtOGVjZS00MWI2NzRjMDFmOWEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NTMwNDksImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.YcNVCBmomQtnPLYEs_GEu9ne38yOw4P3oxhIwS9uwJk'
+Request URL
+https://warhouse-management.runasp.net/api/Cheques/list?skip=0&take=10
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40001bc7-0004-9300-b63f-84710c7967bb",
+  "value": [
+    {
+      "id": "a04e0a6d-a7e7-40a6-b40a-476f2d9b4d74",
+      "code": 5,
+      "checknumber": "123",
+      "amount": 1000,
+      "duedate": "2026-02-07T20:40:56.583",
+      "bankname": "الاهلي",
+      "isincoming": false,
+      "status": "Paid",
+      "relatedname": "احمد محمد مورد",
+      "notes": "string",
+      "issuedate": "2026-02-07T21:10:57.8496139",
+      "invoiceid": null,
+      "supplierinvoiceid": "8fa8d36c-0ca3-4ba4-a3ea-7eb18fc067dc"
+    },
+    {
+      "id": "a60888ad-ed94-40dc-bbb2-cf7f01d0492b",
+      "code": 6,
+      "checknumber": "12",
+      "amount": 500,
+      "duedate": "2026-02-07T22:14:47.1556677",
+      "bankname": "مصر",
+      "isincoming": false,
+      "status": "Paid",
+      "relatedname": "احمد محمد مورد",
+      "notes": "",
+      "issuedate": "2026-02-07T21:15:30.5133604",
+      "invoiceid": null,
+      "supplierinvoiceid": "8fa8d36c-0ca3-4ba4-a3ea-7eb18fc067dc"
+    },
+    {
+      "id": "5a263859-645a-4d7a-9e55-94839febd78e",
+      "code": 7,
+      "checknumber": "5555",
+      "amount": 100,
+      "duedate": "2026-02-07T22:34:39.005884",
+      "bankname": "مصر",
+      "isincoming": true,
+      "status": "Rejected",
+      "relatedname": "احمد محمد عميل",
+      "notes": "",
+      "issuedate": "2026-02-07T21:35:07.6376532",
+      "invoiceid": null,
+      "supplierinvoiceid": null
+    },
+    {
+      "id": "ed7927e0-b8b1-4256-8c20-0fddc80c9f7b",
+      "code": 10,
+      "checknumber": "111",
+      "amount": 6000,
+      "duedate": "2026-02-07T23:03:00.0832434",
+      "bankname": "الاهلي",
+      "isincoming": true,
+      "status": "Collected",
+      "relatedname": "احمد محمد عميل",
+      "notes": "",
+      "issuedate": "2026-02-07T22:03:29.6773153",
+      "invoiceid": "23421bee-e342-415b-b72d-c8bf756af3e4",
+      "supplierinvoiceid": null
+    },
+    {
+      "id": "09b5c159-2bae-4d26-9b44-cc260caadaf5",
+      "code": 11,
+      "checknumber": "44",
+      "amount": 2000,
+      "duedate": "2026-02-08T00:37:09.4329317",
+      "bankname": "القاهره",
+      "isincoming": true,
+      "status": "Collected",
+      "relatedname": "احمد محمد عميل",
+      "notes": "",
+      "issuedate": "2026-02-07T23:37:35.646354",
+      "invoiceid": "23421bee-e342-415b-b72d-c8bf756af3e4",
+      "supplierinvoiceid": null
+    },
+    {
+      "id": "8d7ca0fc-5a20-4d50-b74a-87a9cced9c56",
+      "code": 8,
+      "checknumber": "00011232",
+      "amount": 1000,
+      "duedate": "2026-02-09T21:39:50.139",
+      "bankname": "الاهلي",
+      "isincoming": true,
+      "status": "Rejected",
+      "relatedname": "احمد محمد عميل",
+      "notes": "",
+      "issuedate": "2026-02-07T21:40:40.151608",
+      "invoiceid": "23421bee-e342-415b-b72d-c8bf756af3e4",
+      "supplierinvoiceid": null
+    },
+    {
+      "id": "e406fbc0-b10d-4e42-8e36-3d6c1aac627e",
+      "code": 9,
+      "checknumber": "123123",
+      "amount": 1500,
+      "duedate": "2026-02-09T21:54:04.62",
+      "bankname": "مصر",
+      "isincoming": true,
+      "status": "Rejected",
+      "relatedname": "احمد محمد عميل",
+      "notes": "",
+      "issuedate": "2026-02-07T21:54:35.3857677",
+      "invoiceid": "23421bee-e342-415b-b72d-c8bf756af3e4",
+      "supplierinvoiceid": null
+    },
+    {
+      "id": "f0b2904c-738d-4f72-ab80-8bcafe408d06",
+      "code": 4,
+      "checknumber": "43242334",
+      "amount": 20000,
+      "duedate": "2026-02-15T18:37:32.266",
+      "bankname": "الاهلي",
+      "isincoming": false,
+      "status": "Rejected",
+      "relatedname": "احمد محمد عميل",
+      "notes": "",
+      "issuedate": "2026-02-03T19:02:05.0918583",
+      "invoiceid": "b73b623f-6944-4c1d-9253-34379a2b9e00",
+      "supplierinvoiceid": null
+    },
+    {
+      "id": "29889945-704c-422f-b697-9f61fd71b3cc",
+      "code": 3,
+      "checknumber": "43242334",
+      "amount": 20000,
+      "duedate": "2026-02-15T18:37:32.266",
+      "bankname": "الاهلي",
+      "isincoming": true,
+      "status": "Collected",
+      "relatedname": "احمد محمد عميل",
+      "notes": "",
+      "issuedate": "2026-02-03T18:59:12.4604154",
+      "invoiceid": "feacd093-2ad4-4f90-858f-e2a062183bd0",
+      "supplierinvoiceid": null
+    },
+    {
+      "id": "b34bfc44-e83e-4cd1-b5f1-9ba5d042b2fe",
+      "code": 2,
+      "checknumber": "43242334",
+      "amount": 50000,
+      "duedate": "2026-02-15T18:37:32.266",
+      "bankname": "الاهلي",
+      "isincoming": false,
+      "status": "Paid",
+      "relatedname": "احمد محمد مورد",
+      "notes": "",
+      "issuedate": "2026-02-03T18:42:22.5995324",
+      "invoiceid": null,
+      "supplierinvoiceid": "b8cee339-7315-4866-acc1-dcee8c4f1f83"
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 17:02:13 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+PUT
+/api/Cheques/update
+تعديل وتحديث بيانات شيك بنكي معلق بالنظام قبل عملية التحصيل أو الصرف الفعلي
+
+
+Parameters
+Cancel
+Reset
+No parameters
+
+Request body
+
+application/json
+{
+  "id": "dc551614-a4b0-4faf-9c86-6bdd89d0ba01",
+  "checknumber": "9999999",
+  "amount": 30,
+  "duedate": "2026-07-25T17:00:11.729Z",
+  "bankname": "المصري",
+  "isincoming": true,
+  "relatedname": "Fayez NeWCustomer",
+  "notes": "incoming cheque",
+  "invoiceid": "322e6d13-f568-4b7f-9b57-f5d47c26238a",
+  "supplierinvoiceid": ""
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'PUT' \
+  'https://warhouse-management.runasp.net/api/Cheques/update' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI4Nzc5MTk5Zi0xYzY0LTQzYzYtOGVjZS00MWI2NzRjMDFmOWEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NTMwNDksImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.YcNVCBmomQtnPLYEs_GEu9ne38yOw4P3oxhIwS9uwJk' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "id": "dc551614-a4b0-4faf-9c86-6bdd89d0ba01",
+  "checknumber": "9999999",
+  "amount": 30,
+  "duedate": "2026-07-25T17:00:11.729Z",
+  "bankname": "المصري",
+  "isincoming": true,
+  "relatedname": "Fayez NeWCustomer",
+  "notes": "incoming cheque",
+  "invoiceid": "322e6d13-f568-4b7f-9b57-f5d47c26238a",
+  "supplierinvoiceid": ""
+}'
+Request URL
+https://warhouse-management.runasp.net/api/Cheques/update
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "تم تحديث وتعديل بيانات الشيك البنكي بنظام الحسابات بنجاح.",
+  "traceId": "40004c5a-0002-0800-b63f-84710c7967bb"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 17:03:42 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+PUT
+/api/Cheques/update-status
+تحديث حالة الشيك البنكي يدوياً وتسميع السداد المالي بداخل الفواتير المرتبطة فوراً
+
+
+Parameters
+Cancel
+Name	Description
+cheqId
+string
+(query)
+dc551614-a4b0-4faf-9c86-6bdd89d0ba01
+newStatus
+string
+(query)
+
+Collected
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'PUT' \
+  'https://warhouse-management.runasp.net/api/Cheques/update-status?cheqId=dc551614-a4b0-4faf-9c86-6bdd89d0ba01&newStatus=Collected' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI4Nzc5MTk5Zi0xYzY0LTQzYzYtOGVjZS00MWI2NzRjMDFmOWEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NTMwNDksImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.YcNVCBmomQtnPLYEs_GEu9ne38yOw4P3oxhIwS9uwJk'
+Request URL
+https://warhouse-management.runasp.net/api/Cheques/update-status?cheqId=dc551614-a4b0-4faf-9c86-6bdd89d0ba01&newStatus=Collected
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "تم تحديث حالة الشيك بنجاح، وجرت تسوية الحسابات المالية وتقليص الديون بالفاتورة المرتبطة.",
+  "traceId": "400008b9-0000-c200-b63f-84710c7967bb"
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 17:04:07 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Cheques/GetByCodeId
+جلب تفاصيل بيانات شيك معين بواسطة الكود الرقمي الخاص به
+
+
+Parameters
+Cancel
+Name	Description
+codeId
+string
+(query)
+dc551614-a4b0-4faf-9c86-6bdd89d0ba01
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Cheques/GetByCodeId?codeId=dc551614-a4b0-4faf-9c86-6bdd89d0ba01' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI4Nzc5MTk5Zi0xYzY0LTQzYzYtOGVjZS00MWI2NzRjMDFmOWEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2NTMwNDksImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.YcNVCBmomQtnPLYEs_GEu9ne38yOw4P3oxhIwS9uwJk'
+Request URL
+https://warhouse-management.runasp.net/api/Cheques/GetByCodeId?codeId=dc551614-a4b0-4faf-9c86-6bdd89d0ba01
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40000848-0004-ca00-b63f-84710c7967bb",
+  "id": "dc551614-a4b0-4faf-9c86-6bdd89d0ba01",
+  "code": 14,
+  "checknumber": "9999999",
+  "amount": 30,
+  "duedate": "2026-07-25T17:00:11.729",
+  "bankname": "المصري",
+  "isincoming": true,
+  "status": "Collected",
+  "relatedname": "Fayez NeWCustomer",
+  "notes": "incoming cheque",
+  "issuedate": "2026-07-14T17:00:00.2068415",
+  "invoiceid": "322e6d13-f568-4b7f-9b57-f5d47c26238a",
+  "supplierinvoiceid": null
+}

@@ -1,0 +1,206 @@
+GET
+/api/Returns/GetAllProducsBySuppllierName
+عرض جميع المنتجات المرتجعة لمورد معين
+
+
+Parameters
+Cancel
+Name	Description
+supplierName
+string
+(query)
+اسم المورد المراد عرض المنتجات المرتجعة له
+
+احمد محمد مورد
+skip
+integer($int32)
+(query)
+0
+take
+integer($int32)
+(query)
+10
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Returns/GetAllProducsBySuppllierName?supplierName=%D8%A7%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D9%88%D8%B1%D8%AF&skip=0&take=10' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/Returns/GetAllProducsBySuppllierName?supplierName=%D8%A7%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D9%88%D8%B1%D8%AF&skip=0&take=10
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40000b94-0800-de00-b63f-84710c7967bb",
+  "value": [
+    {
+      "productid": "19163dca-752f-4e95-b16f-f3aa0aba0944",
+      "productcode": 10,
+      "productname": "سكرر",
+      "quantity": 5,
+      "buyprice": 25,
+      "totalprice": 125
+    },
+    {
+      "productid": "95c8de8b-f85a-4164-9450-fc5e228ea3c3",
+      "productcode": 3,
+      "productname": "فون",
+      "quantity": 2,
+      "buyprice": 10000,
+      "totalprice": 20000
+    },
+    {
+      "productid": "b0dbad79-bc95-4a00-a72e-249905dc8ddf",
+      "productcode": 4,
+      "productname": "لاب",
+      "quantity": 2,
+      "buyprice": 25000,
+      "totalprice": 50000
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 12:44:07 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Returns/GetAllProductsInSpecificReturnSupplierInvoice
+عرض جميع المنتجات المرتجعة في فاتورة مرتجع مورد معينة
+
+
+Parameters
+Cancel
+Name	Description
+invoiceCode
+integer($int32)
+(query)
+كود الفاتورة المراد عرض المنتجات المرتجعة لها
+
+11
+skip
+integer($int32)
+(query)
+0
+take
+integer($int32)
+(query)
+10
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Returns/GetAllProductsInSpecificReturnSupplierInvoice?invoiceCode=11&skip=0&take=10' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/Returns/GetAllProductsInSpecificReturnSupplierInvoice?invoiceCode=11&skip=0&take=10
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "400031d4-0002-3a00-b63f-84710c7967bb",
+  "value": [
+    {
+      "productid": "19163dca-752f-4e95-b16f-f3aa0aba0944",
+      "productcode": 14,
+      "productname": "سكرر",
+      "quantity": 3,
+      "buyprice": 27,
+      "totalprice": 81
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Tue,14 Jul 2026 12:59:22 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Returns/return-invoice-items-OfCustomer
+عرض جميع الأصناف والكميات المرتجعة في فاتورة مرتجع عميل معينة
+
+
+Parameters
+Cancel
+Name	Description
+InvoiceCode
+integer($int32)
+(query)
+كود الفاتورة المراد عرض الأصناف والكميات المرتجعة لها
+
+16
+skip
+integer($int32)
+(query)
+0
+take
+integer($int32)
+(query)
+10
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Returns/return-invoice-items-OfCustomer?InvoiceCode=16&skip=0&take=10' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiIwNTI5ODJjNi1jZjE4LTQ1MDctYjg5MC1jMWZmNzhiMGM2NmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ2MzY4MTMsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.7gMHDefPUBArjWh_p1g1YdesTjUWtT8sHoAuYAh_cKs'
+Request URL
+https://warhouse-management.runasp.net/api/Returns/return-invoice-items-OfCustomer?InvoiceCode=16&skip=0&take=10
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40003489-0002-2e00-b63f-84710c7967bb",
+  "invoiceid": "accb2391-0ec8-45fd-b0ee-57738f9a38c4",
+  "invoicecode": "16",
+  "refundamount": 100,
+  "date": "2026-07-14T12:42:40.2355107",
+  "items": [
+    {
+      "productname": "سكرر",
+      "quantity": 2,
+      "unitprice": 50,
+      "totalprice": 100,
+      "reason": "not needed any more"
+    }
+  ]
+}

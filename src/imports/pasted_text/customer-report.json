@@ -1,0 +1,272 @@
+GET
+/api/Reports/customer-report
+تقرير العملاء الذي يقدم نظرة شاملة على نشاط كل عميل، بما في ذلك إجمالي المبيعات، عدد الطلبات، متوسط قيمة الطلب، وتاريخ آخر طلب، مع إمكانية تصفية النتائج حسب اسم العميل أو رقم الهاتف.
+
+
+Parameters
+Cancel
+Name	Description
+customerName
+string
+(query)
+اسم العميل المراد عرض تقرير النشاط له
+
+Fayez NeWCustomer
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Reports/customer-report?customerName=Fayez%20NeWCustomer' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg'
+Request URL
+https://warhouse-management.runasp.net/api/Reports/customer-report?customerName=Fayez%20NeWCustomer
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40000c94-1005-6200-b63f-84710c7967bb",
+  "usernumber": 10,
+  "customername": "Fayez NeWCustomer",
+  "phonenumber": "019228384374",
+  "totalorderscount": 2,
+  "totalsalesamount": 47200,
+  "lastorderdate": "2026-07-13T20:31:30.1921231",
+  "totalreturnscount": 2,
+  "totalreturnsamount": 33500,
+  "totalremainingunpaidreturns": 33500,
+  "totalpaid": 0,
+  "totaldebt": 47200,
+  "totalnetdebt": 13700,
+  "unpaidinvoices": [
+    {
+      "invoicecode": 7,
+      "originalamount": 47000,
+      "remainingamount": 47000,
+      "invoicedate": "2026-02-07T23:32:24.7540807"
+    },
+    {
+      "invoicecode": 15,
+      "originalamount": 200,
+      "remainingamount": 200,
+      "invoicedate": "2026-07-13T20:31:30.2568553"
+    }
+  ],
+  "unpaidreturns": [
+    {
+      "invoicecode": 8,
+      "originalamount": 31500,
+      "remainingamount": 31500,
+      "invoicedate": "2026-02-07T23:33:51.2109106"
+    },
+    {
+      "invoicecode": 10,
+      "originalamount": 2000,
+      "remainingamount": 2000,
+      "invoicedate": "2026-02-08T00:12:56.3684937"
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Mon,13 Jul 2026 20:42:26 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Reports/sales-rep-report
+تقرير مندوب المبيعات الذي يقدم تحليلاً شاملاً لأداء كل مندوب مبيعات، بما في ذلك إجمالي المبيعات، عدد الطلبات، متوسط قيمة الطلب، العمولات المستحقة، وأي طلبات غير مدفوعة، مع إمكانية تصفية النتائج حسب اسم المندوب أو رقم الهاتف.
+
+
+Parameters
+Cancel
+Name	Description
+salesRepName
+string
+(query)
+اسم مندوب المبيعات المراد عرض تقرير الأداء له
+
+احمد محمد مندوب
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Reports/sales-rep-report?salesRepName=%D8%A7%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D9%86%D8%AF%D9%88%D8%A8' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg'
+Request URL
+https://warhouse-management.runasp.net/api/Reports/sales-rep-report?salesRepName=%D8%A7%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D9%86%D8%AF%D9%88%D8%A8
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40002d8e-0004-c800-b63f-84710c7967bb",
+  "usernumber": 4,
+  "salesrepname": "احمد محمد مندوب",
+  "phonenumber": "010182736663",
+  "totalorderscount": 4,
+  "totalsalesvolume": 135320,
+  "totalreturnscount": 2,
+  "totalreturnsvolume": 45060,
+  "totalcommissionearned": 2368.1,
+  "totalcommissionpaid": 262.5,
+  "totalcommissiondue": 2105.6,
+  "unpaidcommissions": [
+    {
+      "invoicecode": 1,
+      "originalamount": 2100,
+      "remainingamount": 2100,
+      "invoicedate": "2026-02-03T18:28:22.2273351"
+    },
+    {
+      "invoicecode": 11,
+      "originalamount": 2.1,
+      "remainingamount": 2.1,
+      "invoicedate": "2026-06-09T15:35:44.6324614"
+    },
+    {
+      "invoicecode": 14,
+      "originalamount": 3.5,
+      "remainingamount": 3.5,
+      "invoicedate": "2026-07-13T20:31:30.2568558"
+    }
+  ]
+}
+Response headers
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Mon,13 Jul 2026 20:42:16 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+No links
+
+GET
+/api/Reports/supplier-report
+تقرير المورد الذي يقدم نظرة شاملة على نشاط كل مورد، بما في ذلك إجمالي المشتريات، عدد الطلبات، متوسط قيمة الطلب، وأي فواتير غير مدفوعة، مع إمكانية تصفية النتائج حسب اسم المورد أو رقم الهاتف.
+
+
+Parameters
+Cancel
+Name	Description
+supplierName
+string
+(query)
+اسم المورد المراد عرض تقرير النشاط له
+
+احمد محمد مورد
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Reports/supplier-report?supplierName=%D8%A7%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D9%88%D8%B1%D8%AF' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI2NzYyOWYwZi1kMTg0LTQzNWUtODVhZC0yNzM3ZmNhZTUyMmIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODQ1Nzc4OTIsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.GROddFRYAAnNwADj2BwLA3dq5iMiZI6M5KG2aBCg_Eg'
+Request URL
+https://warhouse-management.runasp.net/api/Reports/supplier-report?supplierName=%D8%A7%D8%AD%D9%85%D8%AF%20%D9%85%D8%AD%D9%85%D8%AF%20%D9%85%D9%88%D8%B1%D8%AF
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "4000029b-0001-c500-b63f-84710c7967bb",
+  "usernumber": 5,
+  "suppliername": "احمد محمد مورد",
+  "phonenumber": "01283877332",
+  "totalsupplycount": 8,
+  "totalsupplyamount": 729000,
+  "totalremainingunpaidreturns": 60125,
+  "totalreturnscount": 2,
+  "totalreturnsamount": 70125,
+  "totalpaid": 127000,
+  "totaldebt": 602000,
+  "totalnetdebt": 541875,
+  "unpaidinvoices": [
+    {
+      "invoicecode": 1,
+      "originalamount": 575000,
+      "remainingamount": 450000,
+      "invoicedate": "2026-02-03T18:27:35.6180869"
+    },
+    {
+      "invoicecode": 4,
+      "originalamount": 500,
+      "remainingamount": 500,
+      "invoicedate": "2026-06-09T13:37:19.4324731"
+    },
+    {
+      "invoicecode": 5,
+      "originalamount": 1000,
+      "remainingamount": 1000,
+      "invoicedate": "2026-06-09T13:38:03.3603795"
+    },
+    {
+      "invoicecode": 6,
+      "originalamount": 40,
+      "remainingamount": 40,
+      "invoicedate": "2026-06-09T14:19:23.7652895"
+    },
+    {
+      "invoicecode": 8,
+      "originalamount": 300,
+      "remainingamount": 300,
+      "invoicedate": "2026-06-10T18:59:04.656119"
+    },
+    {
+      "invoicecode": 9,
+      "originalamount": 150000,
+      "remainingamount": 150000,
+      "invoicedate": "2026-07-13T20:09:18.2758712"
+    },
+    {
+      "invoicecode": 10,
+      "originalamount": 160,
+      "remainingamount": 160,
+      "invoicedate": "2026-07-13T20:13:31.5054518"
+    }
+  ],
+  "unpaidreturns": [
+    {
+      "invoicecode": 2,
+      "originalamount": 70000,
+      "remainingamount": 60000,
+      "invoicedate": "2026-02-03T18:33:10.6545324"
+    },
+    {
+      "invoicecode": 7,
+      "originalamount": 125,
+      "remainingamount": 125,
+      "invoicedate": "2026-06-09T16:49:33.1797996"
+    }
+  ]
+}
