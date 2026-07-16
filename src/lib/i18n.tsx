@@ -341,9 +341,25 @@ const translations = {
     lbl_searchName: "Search by name…",
     lbl_searchCustomerOrSalesRep: "Code or recipient…",
     lbl_enterName: "Enter name and wait for suggestions",
-    lbl_stockUpdated: "Stock updated successfully",
+        lbl_stockUpdated: "Stock updated successfully",
+        //return to supplier
+        // Modals - Return to Supplier
+        modal_returnToSupplierSub: "Send stock back to supplier — deducts inventory & generates credit invoice",
+        placeholder_supplierName: "...Type supplier name",
+        placeholder_reason: "e.g. defective…",
+        placeholder_productName: "...Product name",
+        btn_addAnotherItem: "Add another item",
+        btn_confirmReturn: "Confirm Return",
   },
-  ar: {
+    ar: {
+        //return to supplier
+        // Modals - Return to Supplier
+        modal_returnToSupplierSub: "إرجاع البضاعة للمورد — يخصم من المخزون ويصدر فاتورة دائنة",
+        placeholder_supplierName: "أدخل اسم المورد...",
+        placeholder_reason: "مثال: تالف أو معيب...",
+        placeholder_productName: "اسم المنتج...",
+        btn_addAnotherItem: "إضافة عنصر آخر",
+        btn_confirmReturn: "تأكيد الإرجاع",
     // Nav items
     nav_overview: "نظرة عامة",
     nav_categories: "الفئات",
@@ -681,7 +697,9 @@ const translations = {
     lbl_searchName: "بحث بالاسم…",
     lbl_searchCustomerOrSalesRep: "رمز أو مستلم…",
     lbl_enterName: "أدخل الاسم وانتظر الاقتراحات",
-    lbl_stockUpdated: "تم تحديث المخزون بنجاح",
+      lbl_stockUpdated: "تم تحديث المخزون بنجاح",
+      //return to supplier
+
   },
 } as const;
 
