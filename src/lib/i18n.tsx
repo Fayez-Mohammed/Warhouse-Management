@@ -592,7 +592,7 @@ const translations = {
     // Shared columns
     col_code: "الرمز",
     col_product: "المنتج",
-    col_sku: "SKU",
+    col_sku: "رمز التخزين",
     col_qty: "الكمية",
     col_category: "الفئة",
     col_salePrice: "سعر البيع",
