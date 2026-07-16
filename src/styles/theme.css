@@ -39,6 +39,9 @@
   --sidebar-accent-foreground: #0f1624;
   --sidebar-border: rgba(0, 0, 0, 0.08);
   --sidebar-ring: #3b82f6;
+  --scrollbar-track: #eef1f8;
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-thumb-hover: #64748b;
 }
 
 .dark {
@@ -78,6 +81,9 @@
   --sidebar-accent-foreground: #e8eaf0;
   --sidebar-border: rgba(255, 255, 255, 0.08);
   --sidebar-ring: #3b82f6;
+  --scrollbar-track: #131929;
+  --scrollbar-thumb: #475569;
+  --scrollbar-thumb-hover: #64748b;
 }
 
 @theme inline {
@@ -128,6 +134,39 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border: 2px solid var(--scrollbar-track);
+    border-radius: 999px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+
+  /* Keep the sidebar clean while preserving wheel and trackpad scrolling. */
+  .sidebar-nav {
+    scrollbar-width: none;
+  }
+
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
   }
 
   /**

@@ -1,0 +1,73 @@
+# ==========================================
+# 🦀 Rust / Tauri Artifacts
+# ==========================================
+# المجلد الخاص بنواتج بناء كود الـ Rust والملفات التشغيلية
+src-tauri/target/
+
+# المجلد التلقائي الذي يولد فيه توري الـ JSON Schemas للـ Capabilities
+src-tauri/gen/schemas/
+
+# أي ملفات بيئة أو إعدادات محلية خاصة بتوري
+src-tauri/.env
+src-tauri/Cargo.lock
+
+# ==========================================
+# ⚛️ Frontend (React / Vite / Node)
+# ==========================================
+# مجلد حزم الـ npm / pnpm
+node_modules/
+.pnpm-debug.log*
+
+# نواتج بناء الفرونت إند (مجلد التوزيع)
+dist/
+build/
+
+# ملفات البيئة المحلية للفرونت إند
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ملفات لوج الـ npm أو الـ IDEs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+.stylelintcache
+
+# ==========================================
+# 💻 .NET Core Backend (Base.API)
+# ==========================================
+# المجلدات الناتجة عن عمل Compile لكود السي شارب
+**/bin/
+**/obj/
+
+# ملفات الأسرار والإعدادات المحلية الخاصة بالمطور
+**/appsettings.Development.json
+**/appsettings.local.json
+**/*.user
+**/*.userosscache
+**/*.sln.docstates
+
+# ملفات قواعد البيانات المحلية المؤقتة (إذا وجدت)
+*.db
+*.db-shm
+*.db-wal
+
+# ==========================================
+# 🛠️ Operating System & IDEs
+# ==========================================
+# ملفات الويندوز والماك التلقائية
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# إعدادات المحرر (VS Code / Visual Studio)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

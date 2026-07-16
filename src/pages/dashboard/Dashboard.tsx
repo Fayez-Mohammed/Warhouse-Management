@@ -81,13 +81,13 @@ export function Dashboard({
 
   return (
     <div
-      className="min-h-screen bg-background flex"
+      className="fixed inset-0 flex overflow-hidden bg-background"
       style={{ fontFamily: isRTL ? "'Cairo', sans-serif" : "'Outfit', sans-serif" }}
     >
 
       {/* ── Sidebar ─────────────────────────────────────────────────────────── */}
       <aside
-        className="shrink-0 flex flex-col bg-card overflow-hidden"
+        className="h-full shrink-0 flex flex-col bg-card overflow-hidden"
         style={{
           width: sidebarWidth,
           transition: "width 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -98,12 +98,11 @@ export function Dashboard({
       >
         {/* Logo row */}
         <div
-          className="flex items-center border-b border-border shrink-0"
-          style={{
-            padding: collapsed ? "20px 0" : "20px",
-            justifyContent: collapsed ? "center" : "space-between",
-            transition: "padding 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
+          className={`flex border-b border-border shrink-0 transition-all duration-200 ${
+            collapsed
+              ? "flex-col items-center justify-center gap-2 py-3"
+              : "items-center justify-between p-5"
+          }`}
         >
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
@@ -120,11 +119,7 @@ export function Dashboard({
           <button
             onClick={() => setCollapsed(c => !c)}
             title={collapsed ? t("sidebar_expand") : t("sidebar_collapse")}
-            className={`shrink-0 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60
-                        transition-all duration-200 flex items-center justify-center w-7 h-7 ${
-              collapsed ? "absolute left-1/2 -translate-x-1/2 bottom-[-18px] z-10 bg-card border border-border shadow-sm" : ""
-            }`}
-            style={collapsed ? { position: "relative", transform: "none", bottom: "auto" } : {}}
+            className="shrink-0 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all duration-200 flex items-center justify-center w-7 h-7"
           >
             {collapsed
               ? <PanelLeftOpen className="w-3.5 h-3.5" />
@@ -135,7 +130,7 @@ export function Dashboard({
 
         {/* Nav */}
         <nav
-          className="flex-1 overflow-y-auto overflow-x-hidden py-3"
+          className="sidebar-nav flex-1 overflow-y-auto overflow-x-hidden py-3"
           style={{ padding: collapsed ? "12px 6px" : "12px" }}
         >
           {NAV_SECTIONS.map(section => (
@@ -216,7 +211,7 @@ export function Dashboard({
       </aside>
 
       {/* ── Main ────────────────────────────────────────────────────────────── */}
-      <main className="flex-1 flex flex-col overflow-hidden">
+      <main className="min-w-0 min-h-0 flex-1 flex flex-col overflow-hidden">
         {/* Top bar with language switcher */}
         <div className="shrink-0 flex items-center justify-end px-6 py-2 border-b border-border bg-card/50">
           <LangSwitcher />
