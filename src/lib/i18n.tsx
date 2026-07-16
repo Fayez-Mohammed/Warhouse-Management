@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  type ReactNode,
+} from "react";
 
 export type Lang = "en" | "ar";
 
@@ -35,7 +41,8 @@ const translations = {
     login_submit: "Sign in",
     login_secured: "Secured with JWT authentication",
     login_tagline: "Full visibility over your inventory",
-    login_taglineDesc: "Track stock levels, manage shipments, and monitor warehouse operations from a single dashboard.",
+    login_taglineDesc:
+      "Track stock levels, manage shipments, and monitor warehouse operations from a single dashboard.",
     login_stockLevel: "STOCK LEVEL",
     login_shipments: "SHIPMENTS",
     login_systemOk: "SYSTEM OPERATIONAL",
@@ -69,7 +76,8 @@ const translations = {
     lbl_description: "Description",
     // Products
     products_title: "Products",
-    products_subtitle: "Manage inventory items and stock levels",
+    products_subtitle:
+      "Manage inventory items and stock levels",
     btn_addProducts: "Add Products",
     btn_stockIn: "Stock In",
     btn_returnSupplier: "Return to Supplier",
@@ -143,7 +151,8 @@ const translations = {
     col_original: "ORIGINAL",
     // Inventory Check
     invCheck_title: "Inventory Check",
-    invCheck_subtitle: "Audit physical stock and reconcile with system quantities.",
+    invCheck_subtitle:
+      "Audit physical stock and reconcile with system quantities.",
     lbl_productName: "Product Name",
     lbl_actualCount: "Actual Count",
     placeholder_qty: "Enter physical quantity...",
@@ -153,26 +162,34 @@ const translations = {
     btn_newCheck: "New Check",
     preview_title: "Adjustment Preview",
     preview_auditEntry: "Audit Entry",
-    invCheck_hint: "Enter a product and count, then click Preview",
+    invCheck_hint:
+      "Enter a product and count, then click Preview",
     lbl_systemQty: "System Qty",
     lbl_difference: "Difference",
     status_surplus: "Surplus",
     status_deficit: "Deficit",
     status_balanced: "Balanced",
     lbl_financialImpact: "Financial Impact",
-    invCheck_previewNote: "Preview mode simulates the adjustment without modifying stock. Review the financial impact before applying.",
-    invCheck_applyNote: "Apply Adjustment commits the change and records an audit entry with a unique adjustment ID.",
+    invCheck_previewNote:
+      "Preview mode simulates the adjustment without modifying stock. Review the financial impact before applying.",
+    invCheck_applyNote:
+      "Apply Adjustment commits the change and records an audit entry with a unique adjustment ID.",
     invCheck_previewMode: "Preview mode",
-    invCheck_previewModeDesc: "simulates the adjustment without modifying stock. Review the financial impact before applying.",
+    invCheck_previewModeDesc:
+      "simulates the adjustment without modifying stock. Review the financial impact before applying.",
     invCheck_applyLabel: "Apply Adjustment",
-    invCheck_applyLabelDesc: "commits the change and records an audit entry with a unique adjustment ID.",
+    invCheck_applyLabelDesc:
+      "commits the change and records an audit entry with a unique adjustment ID.",
     invCheck_idLabel: "ID",
     // Users
     users_title: "Users",
-    users_subtitle: "Manage customers, sales reps, and suppliers",
+    users_subtitle:
+      "Manage customers, sales reps, and suppliers",
     tab_customers: "Customers",
     tab_salesReps: "Sales Reps",
     tab_suppliers: "Suppliers",
+    lbl_customerOrders: "Customer Orders",
+    lbl_customerReturns: "Returns",
     filter_all: "All",
     filter_active: "Active",
     filter_inactive: "Inactive",
@@ -183,14 +200,16 @@ const translations = {
     tooltip_deactivate: "Deactivate",
     // Invoices
     invoices_title: "Invoices",
-    invoices_subtitle: "All financial records — sales, commissions, supplies & returns",
+    invoices_subtitle:
+      "All financial records — sales, commissions, supplies & returns",
     filter_allTypes: "All types",
     btn_clearFilters: "Clear",
     tooltip_viewProducts: "View Products",
     tooltip_paySupplier: "Pay Supplier",
     // Cheques
     cheques_title: "Cheques",
-    cheques_subtitle: "Bank cheques — incoming from customers & outgoing to suppliers",
+    cheques_subtitle:
+      "Bank cheques — incoming from customers & outgoing to suppliers",
     btn_newCheque: "New Cheque",
     dir_incoming: "Incoming (Customer)",
     dir_outgoing: "Outgoing (Supplier)",
@@ -206,7 +225,8 @@ const translations = {
     status_cancelled: "Cancelled",
     lbl_linkedInvoice: "Linked Invoice",
     lbl_optional: "optional",
-    lbl_invoiceNoFound: "No invoices found — enter name and wait for suggestions",
+    lbl_invoiceNoFound:
+      "No invoices found — enter name and wait for suggestions",
     lbl_noLinkedInvoice: "— No linked invoice —",
     lbl_direction: "Direction",
     lbl_chequeNumber: "Cheque Number",
@@ -269,6 +289,7 @@ const translations = {
     btn_save: "Save",
     btn_delete: "Delete",
     btn_confirm: "Confirm",
+    btn_print: "Print",
     btn_new: "New",
     lbl_notes: "Notes",
     lbl_search: "Search by name…",
@@ -318,6 +339,9 @@ const translations = {
     modal_paySupplier: "Pay Supplier",
     lbl_invoiceAmount: "Invoice amount",
     modal_invoiceProducts: "Invoice Products",
+    modal_invoiceDetails: "Invoice Details",
+    tooltip_viewDetails: "View details",
+    col_unitPrice: "UNIT PRICE",
     // Modals - User
     modal_newUser: "New User",
     modal_editUser: "Edit User",
@@ -334,48 +358,51 @@ const translations = {
     lbl_netPayable: "Net Payable",
     lbl_supplyCount: "Supply Orders",
     // Session
-    sessionExpired: "Your session has expired. Please log in again.",
+    sessionExpired:
+      "Your session has expired. Please log in again.",
     // Misc
     lbl_loading: "Loading…",
     lbl_noData: "No data",
     lbl_searchName: "Search by name…",
     lbl_searchCustomerOrSalesRep: "Code or recipient…",
     lbl_enterName: "Enter name and wait for suggestions",
-        lbl_stockUpdated: "Stock updated successfully",
-        //return to supplier
-        // Modals - Return to Supplier
-        modal_returnToSupplierSub: "Send stock back to supplier — deducts inventory & generates credit invoice",
-        placeholder_supplierName: "...Type supplier name",
-        placeholder_reason: "e.g. defective…",
-        placeholder_productName: "...Product name",
-        btn_addAnotherItem: "Add another item",
-        btn_confirmReturn: "Confirm Return",
-        lbl_reason: "Reason",
-        //invoice types
-        // Invoice Types
-        type_customerInvoice: "Customer Invoice",
-        type_commission: "Commission",
-        type_supplierInvoice: "Supplier Invoice",
-        type_returnInvoice: "Return Invoice",
-        type_supplierReturn: "Supplier Return",
+    lbl_stockUpdated: "Stock updated successfully",
+    //return to supplier
+    // Modals - Return to Supplier
+    modal_returnToSupplierSub:
+      "Send stock back to supplier — deducts inventory & generates credit invoice",
+    placeholder_supplierName: "...Type supplier name",
+    placeholder_reason: "e.g. defective…",
+    placeholder_productName: "...Product name",
+    btn_addAnotherItem: "Add another item",
+    btn_confirmReturn: "Confirm Return",
+    lbl_reason: "Reason",
+    //invoice types
+    // Invoice Types
+    type_customerInvoice: "Customer Invoice",
+    type_commission: "Commission",
+    type_supplierInvoice: "Supplier Invoice",
+    type_returnInvoice: "Return Invoice",
+    type_supplierReturn: "Supplier Return",
   },
-    ar: {
-        // invoicetypes
-        // Invoice Types
-        type_customerInvoice: "فاتورة عميل",
-        type_commission: "عمولة",
-        type_supplierInvoice: "فاتورة مورد",
-        type_returnInvoice: "فاتورة مرتجع مبيعات",
-        type_supplierReturn: "مرتجع للمورد",
-        //return to supplier
-        // Modals - Return to Supplier
-        modal_returnToSupplierSub: "إرجاع البضاعة للمورد — يخصم من المخزون ويصدر فاتورة دائنة",
-        placeholder_supplierName: "أدخل اسم المورد...",
-        placeholder_reason: "مثال: تالف أو معيب...",
-        placeholder_productName: "اسم المنتج...",
-        btn_addAnotherItem: "إضافة عنصر آخر",
-        btn_confirmReturn: "تأكيد الإرجاع",
-        lbl_reason: "السبب",
+  ar: {
+    // invoicetypes
+    // Invoice Types
+    type_customerInvoice: "فاتورة عميل",
+    type_commission: "عمولة",
+    type_supplierInvoice: "فاتورة مورد",
+    type_returnInvoice: "فاتورة مرتجع مبيعات",
+    type_supplierReturn: "مرتجع للمورد",
+    //return to supplier
+    // Modals - Return to Supplier
+    modal_returnToSupplierSub:
+      "إرجاع البضاعة للمورد — يخصم من المخزون ويصدر فاتورة دائنة",
+    placeholder_supplierName: "أدخل اسم المورد...",
+    placeholder_reason: "مثال: تالف أو معيب...",
+    placeholder_productName: "اسم المنتج...",
+    btn_addAnotherItem: "إضافة عنصر آخر",
+    btn_confirmReturn: "تأكيد الإرجاع",
+    lbl_reason: "السبب",
     // Nav items
     nav_overview: "نظرة عامة",
     nav_categories: "الفئات",
@@ -407,7 +434,8 @@ const translations = {
     login_submit: "تسجيل الدخول",
     login_secured: "محمي بمصادقة JWT",
     login_tagline: "رؤية كاملة على مخزونك",
-    login_taglineDesc: "تتبع مستويات المخزون وإدارة الشحنات ومراقبة عمليات المستودع من لوحة تحكم واحدة.",
+    login_taglineDesc:
+      "تتبع مستويات المخزون وإدارة الشحنات ومراقبة عمليات المستودع من لوحة تحكم واحدة.",
     login_stockLevel: "مستوى المخزون",
     login_shipments: "الشحنات",
     login_systemOk: "النظام يعمل",
@@ -515,7 +543,8 @@ const translations = {
     col_original: "الأصلي",
     // Inventory Check
     invCheck_title: "جرد المخزون",
-    invCheck_subtitle: "مراجعة المخزون الفعلي والتوفيق مع كميات النظام.",
+    invCheck_subtitle:
+      "مراجعة المخزون الفعلي والتوفيق مع كميات النظام.",
     lbl_productName: "اسم المنتج",
     lbl_actualCount: "العدد الفعلي",
     placeholder_qty: "أدخل الكمية الفعلية...",
@@ -532,12 +561,16 @@ const translations = {
     status_deficit: "عجز",
     status_balanced: "متوازن",
     lbl_financialImpact: "الأثر المالي",
-    invCheck_previewNote: "وضع المعاينة يحاكي التسوية دون تعديل المخزون. راجع الأثر المالي قبل التطبيق.",
-    invCheck_applyNote: "تطبيق التسوية يُثبِّت التغيير ويسجل قيد تدقيق بمعرف فريد.",
+    invCheck_previewNote:
+      "وضع المعاينة يحاكي التسوية دون تعديل المخزون. راجع الأثر المالي قبل التطبيق.",
+    invCheck_applyNote:
+      "تطبيق التسوية يُثبِّت التغيير ويسجل قيد تدقيق بمعرف فريد.",
     invCheck_previewMode: "وضع المعاينة",
-    invCheck_previewModeDesc: "يحاكي التسوية دون تعديل المخزون. راجع الأثر المالي قبل التطبيق.",
+    invCheck_previewModeDesc:
+      "يحاكي التسوية دون تعديل المخزون. راجع الأثر المالي قبل التطبيق.",
     invCheck_applyLabel: "تطبيق التسوية",
-    invCheck_applyLabelDesc: "يُثبِّت التغيير ويسجل قيد تدقيق بمعرف فريد.",
+    invCheck_applyLabelDesc:
+      "يُثبِّت التغيير ويسجل قيد تدقيق بمعرف فريد.",
     invCheck_idLabel: "المعرف",
     // Users
     users_title: "المستخدمون",
@@ -545,6 +578,8 @@ const translations = {
     tab_customers: "العملاء",
     tab_salesReps: "مندوبو المبيعات",
     tab_suppliers: "الموردون",
+    lbl_customerOrders: "فواتير العميل",
+    lbl_customerReturns: "المرتجعات",
     filter_all: "الكل",
     filter_active: "نشط",
     filter_inactive: "غير نشط",
@@ -555,14 +590,16 @@ const translations = {
     tooltip_deactivate: "إيقاف",
     // Invoices
     invoices_title: "الفواتير",
-    invoices_subtitle: "جميع السجلات المالية — مبيعات وعمولات وتوريد ومرتجعات",
+    invoices_subtitle:
+      "جميع السجلات المالية — مبيعات وعمولات وتوريد ومرتجعات",
     filter_allTypes: "جميع الأنواع",
     btn_clearFilters: "مسح",
     tooltip_viewProducts: "عرض المنتجات",
     tooltip_paySupplier: "دفع للمورد",
     // Cheques
     cheques_title: "الشيكات",
-    cheques_subtitle: "شيكات بنكية — واردة من العملاء وصادرة للموردين",
+    cheques_subtitle:
+      "شيكات بنكية — واردة من العملاء وصادرة للموردين",
     btn_newCheque: "شيك جديد",
     dir_incoming: "وارد (عميل)",
     dir_outgoing: "صادر (مورد)",
@@ -578,7 +615,8 @@ const translations = {
     status_cancelled: "ملغى",
     lbl_linkedInvoice: "الفاتورة المرتبطة",
     lbl_optional: "اختياري",
-    lbl_invoiceNoFound: "لا توجد فواتير — أدخل الاسم وانتظر الاقتراحات",
+    lbl_invoiceNoFound:
+      "لا توجد فواتير — أدخل الاسم وانتظر الاقتراحات",
     lbl_noLinkedInvoice: "— بدون فاتورة مرتبطة —",
     lbl_direction: "الاتجاه",
     lbl_chequeNumber: "رقم الشيك",
@@ -641,6 +679,7 @@ const translations = {
     btn_save: "حفظ",
     btn_delete: "حذف",
     btn_confirm: "تأكيد",
+    btn_print: "طباعة",
     btn_new: "جديد",
     lbl_notes: "ملاحظات",
     lbl_search: "بحث بالاسم…",
@@ -690,6 +729,9 @@ const translations = {
     modal_paySupplier: "دفع للمورد",
     lbl_invoiceAmount: "مبلغ الفاتورة",
     modal_invoiceProducts: "منتجات الفاتورة",
+    modal_invoiceDetails: "تفاصيل الفاتورة",
+    tooltip_viewDetails: "عرض التفاصيل",
+    col_unitPrice: "سعر الوحدة",
     // Modals - User
     modal_newUser: "مستخدم جديد",
     modal_editUser: "تعديل المستخدم",
@@ -713,9 +755,8 @@ const translations = {
     lbl_searchName: "بحث بالاسم…",
     lbl_searchCustomerOrSalesRep: "رمز أو مستلم…",
     lbl_enterName: "أدخل الاسم وانتظر الاقتراحات",
-      lbl_stockUpdated: "تم تحديث المخزون بنجاح",
-      //return to supplier
-
+    lbl_stockUpdated: "تم تحديث المخزون بنجاح",
+    //return to supplier
   },
 } as const;
 
@@ -735,7 +776,11 @@ const LangContext = createContext<LangContextValue>({
   isRTL: false,
 });
 
-export function LangProvider({ children }: { children: ReactNode }) {
+export function LangProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const [lang, setLangState] = useState<Lang>(() => {
     const stored = localStorage.getItem("lang");
     return stored === "ar" ? "ar" : "en";
@@ -755,7 +800,11 @@ export function LangProvider({ children }: { children: ReactNode }) {
 
   function t(key: string): string {
     const map = translations[lang] as Record<string, string>;
-    return map[key] ?? (translations.en as Record<string, string>)[key] ?? key;
+    return (
+      map[key] ??
+      (translations.en as Record<string, string>)[key] ??
+      key
+    );
   }
 
   return (

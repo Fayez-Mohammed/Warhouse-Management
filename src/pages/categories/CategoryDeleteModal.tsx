@@ -6,19 +6,35 @@ import { useLang } from "../../lib/i18n";
 import { Overlay } from "../../components/Overlay";
 import type { Category } from "../../types";
 
-export function CategoryDeleteModal({ category, onClose, onDone }: { category: Category; onClose: () => void; onDone: () => void }) {
+export function CategoryDeleteModal({
+  category,
+  onClose,
+  onDone,
+}: {
+  category: Category;
+  onClose: () => void;
+  onDone: () => void;
+}) {
   const { t } = useLang();
   const [loading, setLoading] = useState(false);
 
   async function handleDelete() {
     setLoading(true);
     try {
-      const res = await apiFetch(`${API}/api/Categories/DeleteCategory?id=${category.id}`, { method: "DELETE", headers: authHeaders() });
+      const res = await apiFetch(
+        `${API}/api/Categories/DeleteCategory?id=${category.id}`,
+        { method: "DELETE", headers: authHeaders() },
+      );
       const data = await res.json();
-      if (data.statusCode === 200) { toast.success("Category deleted."); onDone(); }
-      else toast.error(data.message || "Delete failed.");
-    } catch { toast.error("Request failed."); }
-    finally { setLoading(false); }
+      if (data.statusCode === 200) {
+        toast.success("Category deleted.");
+        onDone();
+      } else toast.error(data.message || "Delete failed.");
+    } catch {
+      toast.error("Request failed.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -28,13 +44,34 @@ export function CategoryDeleteModal({ category, onClose, onDone }: { category: C
           <Trash2 className="w-5 h-5 text-destructive" />
         </div>
         <div>
-          <h2 className="text-base font-semibold text-foreground">{t("modal_deleteCategory")}</h2>
-          <p className="text-sm text-muted-foreground mt-1">{t("modal_deleteCategoryMsg")} <span className="text-foreground font-medium">"{category.name}"</span>? {t("modal_deleteCannotUndo")}</p>
+          <h2 className="text-base font-semibold text-foreground">
+            {t("modal_deleteCategory")}
+          </h2>
+          <p className="text-sm text-muted-foreground mt-1">
+            {t("modal_deleteCategoryMsg")}{" "}
+            <span className="text-foreground font-medium">
+              "{category.name}"
+            </span>
+            ? {t("modal_deleteCannotUndo")}
+          </p>
         </div>
         <div className="flex gap-3">
-          <button onClick={onClose} className="flex-1 border border-border text-muted-foreground hover:text-foreground rounded-lg py-2.5 text-sm font-medium transition-all">{t("btn_cancel")}</button>
-          <button onClick={handleDelete} disabled={loading} className="flex-1 bg-destructive hover:bg-destructive/90 disabled:opacity-50 text-destructive-foreground rounded-lg py-2.5 text-sm font-medium flex items-center justify-center gap-2 transition-all">
-            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : t("btn_delete")}
+          <button
+            onClick={onClose}
+            className="flex-1 border border-border text-muted-foreground hover:text-foreground rounded-lg py-2.5 text-sm font-medium transition-all"
+          >
+            {t("btn_cancel")}
+          </button>
+          <button
+            onClick={handleDelete}
+            disabled={loading}
+            className="flex-1 bg-destructive hover:bg-destructive/90 disabled:opacity-50 text-destructive-foreground rounded-lg py-2.5 text-sm font-medium flex items-center justify-center gap-2 transition-all"
+          >
+            {loading ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              t("btn_delete")
+            )}
           </button>
         </div>
       </div>

@@ -6,19 +6,35 @@ import { useLang } from "../../lib/i18n";
 import { Overlay } from "../../components/Overlay";
 import type { AppUser } from "../../types";
 
-export function UserDeleteModal({ user, onClose, onDone }: { user: AppUser; onClose: () => void; onDone: () => void }) {
+export function UserDeleteModal({
+  user,
+  onClose,
+  onDone,
+}: {
+  user: AppUser;
+  onClose: () => void;
+  onDone: () => void;
+}) {
   const { t } = useLang();
   const [loading, setLoading] = useState(false);
 
   async function handleDelete() {
     setLoading(true);
     try {
-      const res = await apiFetch(`${API}/api/users/delete?id=${user.id}`, { method: "DELETE", headers: authHeaders() });
+      const res = await apiFetch(
+        `${API}/api/users/delete?id=${user.id}`,
+        { method: "DELETE", headers: authHeaders() },
+      );
       const data = await res.json();
-      if (data.statusCode === 200) { toast.success("User deleted."); onDone(); }
-      else toast.error(data.message || "Delete failed.");
-    } catch { toast.error("Request failed."); }
-    finally { setLoading(false); }
+      if (data.statusCode === 200) {
+        toast.success("User deleted.");
+        onDone();
+      } else toast.error(data.message || "Delete failed.");
+    } catch {
+      toast.error("Request failed.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -28,15 +44,34 @@ export function UserDeleteModal({ user, onClose, onDone }: { user: AppUser; onCl
           <Trash2 className="w-5 h-5 text-destructive" />
         </div>
         <div>
-          <h2 className="text-base font-semibold text-foreground">{t("modal_deleteUser")}</h2>
+          <h2 className="text-base font-semibold text-foreground">
+            {t("modal_deleteUser")}
+          </h2>
           <p className="text-sm text-muted-foreground mt-1">
-            {t("modal_deleteCategoryMsg")} <span className="text-foreground font-medium">"{user.fullname}"</span>? {t("modal_deleteCannotUndo")}
+            {t("modal_deleteCategoryMsg")}{" "}
+            <span className="text-foreground font-medium">
+              "{user.fullname}"
+            </span>
+            ? {t("modal_deleteCannotUndo")}
           </p>
         </div>
         <div className="flex gap-3">
-          <button onClick={onClose} className="flex-1 border border-border text-muted-foreground hover:text-foreground rounded-lg py-2.5 text-sm font-medium transition-all">{t("btn_cancel")}</button>
-          <button onClick={handleDelete} disabled={loading} className="flex-1 bg-destructive hover:bg-destructive/90 disabled:opacity-50 text-destructive-foreground rounded-lg py-2.5 text-sm font-medium flex items-center justify-center gap-2 transition-all">
-            {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : t("btn_delete")}
+          <button
+            onClick={onClose}
+            className="flex-1 border border-border text-muted-foreground hover:text-foreground rounded-lg py-2.5 text-sm font-medium transition-all"
+          >
+            {t("btn_cancel")}
+          </button>
+          <button
+            onClick={handleDelete}
+            disabled={loading}
+            className="flex-1 bg-destructive hover:bg-destructive/90 disabled:opacity-50 text-destructive-foreground rounded-lg py-2.5 text-sm font-medium flex items-center justify-center gap-2 transition-all"
+          >
+            {loading ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              t("btn_delete")
+            )}
           </button>
         </div>
       </div>

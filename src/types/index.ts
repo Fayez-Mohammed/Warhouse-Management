@@ -93,6 +93,16 @@ export interface SupplierInvoiceProduct {
   productid: string; productcode: number; productname: string;
   quantity: number; buyprice: number; totalprice: number;
 }
+// Official invoice details (customer/{id}/details & supplier/{id}/details)
+export interface InvoiceDetailItem {
+  productname: string; categoryname: string;
+  quantity: number; priceorcost: number; total: number;
+}
+export interface InvoiceDetails {
+  code: number; recipientorsuppliername: string; invoicetype: number;
+  dateofcreation: string; items: InvoiceDetailItem[];
+  totalamount: number; paidamount: number; remainingamount: number;
+}
 
 // ─── Cheques ──────────────────────────────────────────────────────────────────────
 export interface Cheque {

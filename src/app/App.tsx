@@ -21,26 +21,45 @@ function AppInner() {
         method: "POST",
         headers: authHeaders(),
       });
-    } catch { /* ignore network errors on logout */ }
+    } catch {
+      /* ignore network errors on logout */
+    }
 
     clearTokens();
     setUser(null);
     setPhase("login");
 
     if (expired) {
-      toast.error("Your session has expired. Please log in again.");
+      toast.error(
+        "Your session has expired. Please log in again.",
+      );
     }
   }, []);
 
   // Listen for session-expired events fired by apiFetch when refresh fails
   useEffect(() => {
-    function handleExpired() { performLogout(true); }
-    window.addEventListener("auth:sessionExpired", handleExpired);
-    return () => window.removeEventListener("auth:sessionExpired", handleExpired);
+    function handleExpired() {
+      performLogout(true);
+    }
+    window.addEventListener(
+      "auth:sessionExpired",
+      handleExpired,
+    );
+    return () =>
+      window.removeEventListener(
+        "auth:sessionExpired",
+        handleExpired,
+      );
   }, [performLogout]);
 
-  function handleLoginSuccess(u: UserInfo) { setUser(u); setPhase("dashboard"); }
-  function handleOtpRequired(email: string) { setOtpEmail(email); setPhase("otp"); }
+  function handleLoginSuccess(u: UserInfo) {
+    setUser(u);
+    setPhase("dashboard");
+  }
+  function handleOtpRequired(email: string) {
+    setOtpEmail(email);
+    setPhase("otp");
+  }
 
   return (
     <>

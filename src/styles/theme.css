@@ -120,9 +120,13 @@
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary-foreground: var(
+    --sidebar-primary-foreground
+  );
   --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent-foreground: var(
+    --sidebar-accent-foreground
+  );
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
@@ -138,7 +142,8 @@
 
   * {
     scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-color: var(--scrollbar-thumb)
+      var(--scrollbar-track);
   }
 
   *::-webkit-scrollbar {
@@ -218,5 +223,74 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+  }
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  html,
+  body,
+  #root {
+    background: #fff !important;
+  }
+  body * {
+    visibility: hidden !important;
+  }
+  .print-document,
+  .print-document * {
+    visibility: visible !important;
+  }
+  .print-document {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+    color: #111827 !important;
+  }
+  .print-hidden {
+    display: none !important;
+  }
+  .print-scroll {
+    overflow: visible !important;
+    max-height: none !important;
+    flex: none !important;
+  }
+  .print-document table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+  .print-document th,
+  .print-document td {
+    border-bottom: 1px solid #d1d5db !important;
+    padding: 8px !important;
+    text-align: start !important;
+    color: #111827 !important;
+  }
+  .print-document thead {
+    display: table-header-group;
+  }
+  .print-document tfoot {
+    display: table-footer-group;
+  }
+  .print-document tr {
+    break-inside: avoid;
+  }
+  .print-document [dir="ltr"] {
+    direction: ltr;
+    unicode-bidi: plaintext;
+  }
+  [dir="rtl"] .print-document {
+    direction: rtl;
+    text-align: right;
   }
 }
