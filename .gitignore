@@ -64,10 +64,17 @@ ehthumbs.db
 Desktop.ini
 .DS_Store
 
-# إعدادات المحرر (VS Code / Visual Studio)
+# إعدادات Visual Studio وملفات الفهرسة المؤقتة (مهم جداً لحل مشكلتك)
+.vs/
+*.slnx
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+slnx.sqlite
+
+# إعدادات محرر VS Code و WebStorm
 .vscode/
 .idea/
-*.suo
 *.ntvs*
 *.njsproj
-*.sln

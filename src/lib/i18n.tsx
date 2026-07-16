@@ -351,8 +351,22 @@ const translations = {
         btn_addAnotherItem: "Add another item",
         btn_confirmReturn: "Confirm Return",
         lbl_reason: "Reason",
+        //invoice types
+        // Invoice Types
+        type_customerInvoice: "Customer Invoice",
+        type_commission: "Commission",
+        type_supplierInvoice: "Supplier Invoice",
+        type_returnInvoice: "Return Invoice",
+        type_supplierReturn: "Supplier Return",
   },
     ar: {
+        // invoicetypes
+        // Invoice Types
+        type_customerInvoice: "فاتورة عميل",
+        type_commission: "عمولة",
+        type_supplierInvoice: "فاتورة مورد",
+        type_returnInvoice: "فاتورة مرتجع مبيعات",
+        type_supplierReturn: "مرتجع للمورد",
         //return to supplier
         // Modals - Return to Supplier
         modal_returnToSupplierSub: "إرجاع البضاعة للمورد — يخصم من المخزون ويصدر فاتورة دائنة",
