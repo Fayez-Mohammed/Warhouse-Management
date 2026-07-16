@@ -1,4 +1,5 @@
-export const API = "https://warhouse-management.runasp.net";
+//export const API = "https://warhouse-management.runasp.net";
+export const API = "http://localhost:5002";
 
 export function authHeaders(): HeadersInit {
   const token = localStorage.getItem("token");
