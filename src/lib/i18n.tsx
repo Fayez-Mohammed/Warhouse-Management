@@ -350,6 +350,7 @@ const translations = {
         placeholder_productName: "...Product name",
         btn_addAnotherItem: "Add another item",
         btn_confirmReturn: "Confirm Return",
+        lbl_reason: "Reason",
   },
     ar: {
         //return to supplier
@@ -360,6 +361,7 @@ const translations = {
         placeholder_productName: "اسم المنتج...",
         btn_addAnotherItem: "إضافة عنصر آخر",
         btn_confirmReturn: "تأكيد الإرجاع",
+        lbl_reason: "السبب",
     // Nav items
     nav_overview: "نظرة عامة",
     nav_categories: "الفئات",
