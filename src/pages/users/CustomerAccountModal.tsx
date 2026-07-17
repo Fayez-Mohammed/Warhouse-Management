@@ -135,7 +135,7 @@ function InvoiceRow({
         <button
           onClick={() => onView(inv)}
           title={t("tooltip_viewDetails")}
-          className="opacity-0 group-hover:opacity-100 w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+          className="sm:opacity-0 group-hover:opacity-100 w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
         >
           <Eye className="w-3 h-3" />
         </button>

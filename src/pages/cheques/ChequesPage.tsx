@@ -400,7 +400,7 @@ export function ChequesPage() {
                         </span>
                       </td>
                       <td className="py-3.5 px-5">
-                        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity justify-end">
+                        <div className="flex items-center gap-1 sm:opacity-0 group-hover:opacity-100 transition-opacity justify-end">
                           {isPending && (
                             <>
                               <button

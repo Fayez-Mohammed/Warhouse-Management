@@ -295,7 +295,7 @@ export function SupplierAccountModal({
                                           toListItem(inv),
                                         )
                                       }
-                                      className="opacity-0 group-hover:opacity-100 w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+                                      className="sm:opacity-0 group-hover:opacity-100 w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
                                       title={t("tooltip_viewDetails")}
                                     >
                                       <Eye className="w-3 h-3" />
@@ -307,7 +307,7 @@ export function SupplierAccountModal({
                                             toListItem(inv),
                                           )
                                         }
-                                        className="opacity-0 group-hover:opacity-100 w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"
+                                        className="sm:opacity-0 group-hover:opacity-100 w-6 h-6 rounded-md flex items-center justify-center text-muted-foreground hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"
                                         title={t("tooltip_paySupplier")}
                                       >
                                         <CreditCard className="w-3 h-3" />

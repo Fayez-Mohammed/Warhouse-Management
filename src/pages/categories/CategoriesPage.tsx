@@ -274,7 +274,7 @@ export function CategoriesPage() {
                       </span>
                     </td>
                     <td className="py-3.5 px-6">
-                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity justify-end">
+                      <div className="flex items-center gap-1 sm:opacity-0 group-hover:opacity-100 transition-opacity justify-end">
                         <button
                           onClick={() =>
                             setModal({
