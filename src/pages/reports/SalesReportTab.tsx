@@ -75,7 +75,7 @@ export function SalesReportTab() {
   }));
 
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-4 sm:p-8 space-y-6">
       <div className="flex items-end gap-3 flex-wrap">
         <div className="space-y-1">
           <label className="text-xs text-muted-foreground">
@@ -221,13 +221,14 @@ export function SalesReportTab() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {topProds.length > 0 && (
-              <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="bg-card border border-border rounded-xl overflow-x-auto">
                 <div className="px-5 py-3.5 border-b border-border">
                   <p className="text-sm font-semibold text-foreground">
                     {t("report_topProducts")}
                   </p>
                 </div>
-                <table className="w-full text-sm">
+                <div className="overflow-x-auto">
+                <table className="w-full min-w-[640px] text-sm">
                   <thead>
                     <tr className="border-b border-border/50">
                       {[
@@ -273,16 +274,18 @@ export function SalesReportTab() {
                     ))}
                   </tbody>
                 </table>
+                </div>
               </div>
             )}
             {topCust.length > 0 && (
-              <div className="bg-card border border-border rounded-xl overflow-hidden">
+              <div className="bg-card border border-border rounded-xl overflow-x-auto">
                 <div className="px-5 py-3.5 border-b border-border">
                   <p className="text-sm font-semibold text-foreground">
                     {t("report_topCustomers")}
                   </p>
                 </div>
-                <table className="w-full text-sm">
+                <div className="overflow-x-auto">
+                <table className="w-full min-w-[640px] text-sm">
                   <thead>
                     <tr className="border-b border-border/50">
                       {[
@@ -328,6 +331,7 @@ export function SalesReportTab() {
                     ))}
                   </tbody>
                 </table>
+                </div>
               </div>
             )}
           </div>

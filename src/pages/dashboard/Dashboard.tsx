@@ -69,6 +69,18 @@ export function Dashboard({
     }
   }, [collapsed]);
 
+  // Auto-collapse the sidebar on phone-sized screens so page
+  // content (especially wide tables) gets the most room.
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    const apply = () => {
+      if (mq.matches) setCollapsed(true);
+    };
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
   const sidebarWidth = collapsed
     ? SIDEBAR_COLLAPSED
     : SIDEBAR_EXPANDED;

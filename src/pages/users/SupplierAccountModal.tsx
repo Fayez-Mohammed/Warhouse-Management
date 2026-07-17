@@ -229,8 +229,8 @@ export function SupplierAccountModal({
                     <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">
                       Invoice History
                     </h3>
-                    <div className="rounded-xl border border-border overflow-hidden">
-                      <table className="w-full text-sm">
+                    <div className="rounded-xl border border-border overflow-x-auto">
+                      <table className="w-full min-w-[480px] text-sm">
                         <thead>
                           <tr className="border-b border-border bg-muted/20">
                             {[

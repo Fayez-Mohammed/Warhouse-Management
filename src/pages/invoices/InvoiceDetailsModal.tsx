@@ -111,7 +111,7 @@ export function InvoiceDetailsModal({
               {t("lbl_noData")}
             </p>
           ) : (
-            <table className="w-full text-sm">
+            <table className="w-full min-w-[420px] text-sm">
               <thead>
                 <tr className="border-b border-border">
                   {[

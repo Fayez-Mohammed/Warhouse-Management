@@ -145,7 +145,7 @@ export function CategoriesPage() {
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-background/50">
       {/* رأس الصفحة والمكونات العلوية */}
-      <div className="border-b border-border px-8 py-5 flex items-center justify-between shrink-0 bg-background">
+      <div className="border-b border-border px-4 sm:px-8 py-5 flex items-center justify-between shrink-0 bg-background">
         <div>
           <h1 className="text-lg font-semibold text-foreground">
             {t("categories_title")}
@@ -164,7 +164,7 @@ export function CategoriesPage() {
       </div>
 
       {/* شريط البحث */}
-      <div className="px-8 py-4 border-b border-border shrink-0 bg-background">
+      <div className="px-4 sm:px-8 py-4 border-b border-border shrink-0 bg-background">
         <div className="relative max-w-sm" ref={searchRef}>
           <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
@@ -212,7 +212,7 @@ export function CategoriesPage() {
       </div>
 
       {/* منطقة عرض الجدول بداخل بطاقة بيضاء دائرية الحواف (Card Design) */}
-      <div className="flex-1 overflow-auto px-8 py-6">
+      <div className="flex-1 overflow-auto px-4 sm:px-8 py-6">
         {loading ? (
           <div className="flex items-center justify-center py-24">
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
@@ -225,8 +225,8 @@ export function CategoriesPage() {
             </p>
           </div>
         ) : (
-          <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
-            <table className="w-full text-sm">
+          <div className="bg-card border border-border rounded-2xl overflow-x-auto shadow-sm">
+            <table className="w-full min-w-[720px] text-sm">
               <thead>
                 <tr className="border-b border-border bg-muted/10">
                   <th className="text-start py-3.5 px-6 text-xs font-semibold text-muted-foreground font-mono tracking-wider">
@@ -309,7 +309,7 @@ export function CategoriesPage() {
 
       {/* ترقيم الصفحات (Pagination) */}
       {!loading && !search && (
-        <div className="border-t border-border px-8 py-3.5 flex items-center justify-between shrink-0 bg-background">
+        <div className="border-t border-border px-4 sm:px-8 py-3.5 flex items-center justify-between shrink-0 bg-background">
           <p className="text-xs text-muted-foreground font-mono">
             {t("pagination_showing")} {skip + 1}–
             {skip + categories.length}

@@ -200,7 +200,7 @@ export function UsersPage() {
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-background/50">
       {/* Page header */}
-      <div className="border-b border-border px-8 py-5 flex items-center justify-between shrink-0 bg-background">
+      <div className="border-b border-border px-4 sm:px-8 py-5 flex items-center justify-between shrink-0 bg-background">
         <div>
           <h1 className="text-lg font-semibold text-foreground">
             {t("users_title")}
@@ -219,7 +219,7 @@ export function UsersPage() {
       </div>
 
       {/* Tab bar */}
-      <div className="px-8 pt-4 border-b border-border shrink-0 bg-background">
+      <div className="px-4 sm:px-8 pt-4 border-b border-border shrink-0 bg-background">
         <div className="flex gap-1">
           {TABS.map((tb) => (
             <button
@@ -239,7 +239,7 @@ export function UsersPage() {
       </div>
 
       {/* Toolbar: search + active filter */}
-      <div className="px-8 py-3.5 border-b border-border shrink-0 flex items-center gap-3 flex-wrap bg-background">
+      <div className="px-4 sm:px-8 py-3.5 border-b border-border shrink-0 flex items-center gap-3 flex-wrap bg-background">
         <div className="relative max-w-sm flex-1">
           <Search className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
@@ -289,7 +289,7 @@ export function UsersPage() {
       </div>
 
       {/* Table Container with White Card Design */}
-      <div className="flex-1 overflow-auto px-8 py-6">
+      <div className="flex-1 overflow-auto px-4 sm:px-8 py-6">
         {loading ? (
           <div className="flex items-center justify-center py-24">
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
@@ -306,8 +306,8 @@ export function UsersPage() {
             </p>
           </div>
         ) : (
-          <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
-            <table className="w-full text-sm">
+          <div className="bg-card border border-border rounded-2xl overflow-x-auto shadow-sm">
+            <table className="w-full min-w-[720px] text-sm">
               <thead>
                 <tr className="border-b border-border bg-muted/10">
                   {[
@@ -446,7 +446,7 @@ export function UsersPage() {
 
       {/* Pagination */}
       {!loading && totalPages > 1 && (
-        <div className="border-t border-border px-8 py-3.5 flex items-center justify-between shrink-0 bg-background">
+        <div className="border-t border-border px-4 sm:px-8 py-3.5 flex items-center justify-between shrink-0 bg-background">
           <p className="text-xs text-muted-foreground font-mono">
             {t("pagination_page")} {page} {t("pagination_of")}{" "}
             {totalPages} — {totalCount} {tabLabel(activeTab)}

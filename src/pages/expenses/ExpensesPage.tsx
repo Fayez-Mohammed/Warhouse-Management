@@ -312,7 +312,7 @@ export function ExpensesPage() {
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-background/50">
       {/* Header */}
-      <div className="border-b border-border px-8 py-5 flex items-center justify-between shrink-0 bg-background">
+      <div className="border-b border-border px-4 sm:px-8 py-5 flex items-center justify-between shrink-0 bg-background">
         <div>
           <h1 className="text-lg font-semibold text-foreground">
             {t("expenses_title")}
@@ -345,7 +345,7 @@ export function ExpensesPage() {
       </div>
 
       {/* Table Container with White Card Design */}
-      <div className="flex-1 overflow-auto px-8 py-6">
+      <div className="flex-1 overflow-auto px-4 sm:px-8 py-6">
         {loading ? (
           <div className="flex items-center justify-center py-24">
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
@@ -366,8 +366,8 @@ export function ExpensesPage() {
             </button>
           </div>
         ) : (
-          <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-sm">
-            <table className="w-full text-sm">
+          <div className="bg-card border border-border rounded-2xl overflow-x-auto shadow-sm">
+            <table className="w-full min-w-[720px] text-sm">
               <thead>
                 <tr className="border-b border-border bg-muted/10">
                   {[
@@ -456,7 +456,7 @@ export function ExpensesPage() {
 
       {/* Pagination */}
       {!loading && expenses.length > 0 && (
-        <div className="border-t border-border px-8 py-3.5 flex items-center justify-between shrink-0 bg-background">
+        <div className="border-t border-border px-4 sm:px-8 py-3.5 flex items-center justify-between shrink-0 bg-background">
           <p className="text-xs text-muted-foreground font-mono">
             <span dir="ltr" className="inline-block">
               {t("pagination_showing")} {skip + 1}–

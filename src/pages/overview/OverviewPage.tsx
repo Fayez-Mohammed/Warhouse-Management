@@ -69,7 +69,7 @@ export function OverviewPage() {
 
   return (
     <div className="flex-1 flex flex-col overflow-auto">
-      <div className="border-b border-border px-8 py-5 flex items-start justify-between shrink-0 gap-4 flex-wrap">
+      <div className="border-b border-border px-4 sm:px-8 py-5 flex items-start justify-between shrink-0 gap-4 flex-wrap">
         <div>
           <h1 className="text-lg font-semibold text-foreground">
             {t("overview_title")}
@@ -92,7 +92,7 @@ export function OverviewPage() {
       </div>
 
       {period === "Custom" && (
-        <div className="px-8 py-4 border-b border-border flex items-end gap-3 flex-wrap shrink-0">
+        <div className="px-4 sm:px-8 py-4 border-b border-border flex items-end gap-3 flex-wrap shrink-0">
           <div className="space-y-1">
             <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
               <Calendar className="w-3 h-3" />
@@ -127,7 +127,7 @@ export function OverviewPage() {
         </div>
       )}
 
-      <div className="flex-1 px-8 py-6 space-y-8">
+      <div className="flex-1 px-4 sm:px-8 py-6 space-y-8">
         {loading ? (
           <div className="flex items-center justify-center py-24">
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
@@ -158,7 +158,7 @@ export function OverviewPage() {
               />
             </div>
 
-            <div className="bg-card border border-border rounded-xl overflow-hidden">
+            <div className="bg-card border border-border rounded-xl overflow-x-auto">
               <div className="flex items-center justify-between px-5 py-4 border-b border-border">
                 <div className="flex items-center gap-2.5">
                   <AlertTriangle className="w-4 h-4 text-amber-500" />
@@ -181,7 +181,8 @@ export function OverviewPage() {
                   </p>
                 </div>
               ) : (
-                <table className="w-full text-sm">
+                <div className="overflow-x-auto">
+                <table className="w-full min-w-[640px] text-sm">
                   <thead>
                     <tr className="border-b border-border/50">
                       <th className="text-start py-3 px-5 text-xs font-medium text-muted-foreground font-mono tracking-wider">
@@ -229,6 +230,7 @@ export function OverviewPage() {
                     ))}
                   </tbody>
                 </table>
+                </div>
               )}
             </div>
           </>

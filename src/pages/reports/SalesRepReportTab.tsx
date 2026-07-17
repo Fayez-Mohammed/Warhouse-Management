@@ -34,7 +34,7 @@ export function SalesRepReportTab() {
   }
 
   return (
-    <div className="p-8 space-y-6">
+    <div className="p-4 sm:p-8 space-y-6">
       <div className="flex gap-3 items-end max-w-md">
         <div className="flex-1 space-y-1">
           <label className="text-xs text-muted-foreground">

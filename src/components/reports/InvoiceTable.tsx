@@ -10,7 +10,8 @@ export function InvoiceTable({ title, rows }: { title: string; rows: Invoice[] }
       <div className="px-5 py-3.5 border-b border-border">
         <p className="text-sm font-semibold text-foreground">{title}</p>
       </div>
-      <table className="w-full text-sm">
+      <div className="overflow-x-auto">
+      <table className="w-full min-w-[520px] text-sm">
         <thead><tr className="border-b border-border/50">{[t("col_invNo"),t("col_original"),t("col_remaining"),t("col_date")].map(h=><th key={h} className="text-start py-2.5 px-4 text-xs font-medium text-muted-foreground font-mono">{h}</th>)}</tr></thead>
         <tbody>
           {rows.map((r,i)=>(
@@ -23,6 +24,7 @@ export function InvoiceTable({ title, rows }: { title: string; rows: Invoice[] }
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

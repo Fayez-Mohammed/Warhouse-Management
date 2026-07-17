@@ -267,8 +267,8 @@ export function CustomerAccountModal({
                   <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
                     {t("invoices_title")}
                   </h3>
-                  <div className="rounded-xl border border-border overflow-hidden">
-                    <table className="w-full text-sm">
+                  <div className="rounded-xl border border-border overflow-x-auto">
+                    <table className="w-full min-w-[480px] text-sm">
                       <thead>
                         <tr className="border-b border-border bg-muted/20">
                           {[
