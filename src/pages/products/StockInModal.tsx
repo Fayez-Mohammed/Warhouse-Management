@@ -6,6 +6,7 @@ import { API, authHeaders, apiFetch } from "../../lib/api";
 import { useLang } from "../../lib/i18n";
 import { Overlay } from "../../components/Overlay";
 import { SupplierAutocomplete } from "../../components/autocomplete/SupplierAutocomplete";
+import { ProductNameAutocomplete } from "../../components/autocomplete/ProductNameAutocomplete";
 
 interface StockInRow {
   productname: string;
@@ -124,18 +125,9 @@ export function StockInModal({
                   <label className="text-xs text-muted-foreground">
                     {t("col_product")} *
                   </label>
-                  <input
+                  <ProductNameAutocomplete
                     value={row.productname}
-                    onChange={(e) =>
-                      updateRow(
-                        i,
-                        "productname",
-                        e.target.value,
-                      )
-                    }
-                    required
-                    placeholder="Must match existing product"
-                    className={inputCls}
+                    onChange={(v) => updateRow(i, "productname", v)}
                   />
                 </div>
                 <div className="space-y-1">

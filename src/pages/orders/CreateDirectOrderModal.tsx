@@ -8,6 +8,7 @@ import {
   UserCheck,
   Phone,
   Percent,
+  DollarSign,
 } from "lucide-react";
 import { toast } from "sonner";
 import { API, authHeaders, apiFetch } from "../../lib/api";
@@ -36,6 +37,7 @@ export function CreateDirectOrderModal({
   const [items, setItems] = useState<OrderItem[]>([
     { productname: "", quantity: "" },
   ]);
+  const [paidamount, setPaidamount] = useState("");
   const [loading, setLoading] = useState(false);
 
   function updateItem(
@@ -70,6 +72,7 @@ export function CreateDirectOrderModal({
         salesrepname: salesrepname || null,
         customername,
         phonenumber,
+        paidamount: paidamount ? Number(paidamount) : 0,
         items: items.map((it) => ({
           productname: it.productname,
           quantity: Number(it.quantity),
@@ -178,6 +181,22 @@ export function CreateDirectOrderModal({
                   onChange={(e) =>
                     setCommission(e.target.value)
                   }
+                  className={inputCls}
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
+                  <DollarSign className="w-3.5 h-3.5" />
+                  {t("lbl_paymentAmount")}{" "}
+                  <span className="opacity-50">({t("lbl_optional")})</span>
+                </label>
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value={paidamount}
+                  onChange={(e) => setPaidamount(e.target.value)}
+                  placeholder="0"
                   className={inputCls}
                 />
               </div>

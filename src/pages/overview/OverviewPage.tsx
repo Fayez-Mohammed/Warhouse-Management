@@ -191,9 +191,7 @@ export function OverviewPage() {
                       <th className="text-start py-3 px-5 text-xs font-medium text-muted-foreground font-mono tracking-wider">
                         {t("col_product")}
                       </th>
-                      <th className="text-start py-3 px-5 text-xs font-medium text-muted-foreground font-mono tracking-wider">
-                        {t("col_sku")}
-                      </th>
+
                       <th className="text-end py-3 px-5 text-xs font-medium text-muted-foreground font-mono tracking-wider">
                         {t("col_qty")}
                       </th>
@@ -216,9 +214,7 @@ export function OverviewPage() {
                         <td className="text-start py-3.5 px-5 font-medium text-foreground">
                           {p.productname}
                         </td>
-                        <td className="text-start py-3.5 px-5 text-muted-foreground font-mono text-xs">
-                          {p.sku?.trim() || "—"}
-                        </td>
+
                         <td className="text-end py-3.5 px-5">
                           <span
                             className={`font-mono text-sm font-semibold ${p.currentquantity <= 5 ? "text-destructive" : "text-amber-500"}`}

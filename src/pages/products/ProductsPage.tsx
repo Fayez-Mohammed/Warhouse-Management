@@ -274,7 +274,7 @@ export function ProductsPage() {
                       label: t("col_buyPrice"),
                     },
                     { key: "col_qty", label: t("col_qty") },
-                    { key: "col_sku", label: t("col_sku") },
+
                   ].map((h) => (
                     <th
                       key={h.key}
@@ -326,9 +326,7 @@ export function ProductsPage() {
                         <AlertTriangle className="inline w-3 h-3 text-amber-500 mx-1" />
                       )}
                     </td>
-                    <td className="text-start py-3.5 px-5 font-mono text-xs text-muted-foreground">
-                      {p.sku?.trim() || "—"}
-                    </td>
+
                     <td className="py-3.5 px-5">
                       <div className="flex items-center gap-1 sm:opacity-0 group-hover:opacity-100 transition-opacity justify-end">
                         <button

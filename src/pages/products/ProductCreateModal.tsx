@@ -214,20 +214,7 @@ export function ProductCreateModal({
                     className={inputCls}
                   />
                 </div>
-                <div className="flex items-end gap-2">
-                  <div className="flex-1 space-y-1">
-                    <label className="text-xs text-muted-foreground">
-                      {t("col_sku")}
-                    </label>
-                    <input
-                      value={row.sku}
-                      onChange={(e) =>
-                        updateRow(i, "sku", e.target.value)
-                      }
-                      placeholder="SKU"
-                      className={inputCls}
-                    />
-                  </div>
+                <div className="flex items-end justify-end">
                   {rows.length > 1 && (
                     <button
                       type="button"
