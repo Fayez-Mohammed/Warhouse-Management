@@ -140,14 +140,13 @@ export function CreateDirectOrderModal({
               <div className="space-y-1.5">
                 <label className="text-xs font-medium text-muted-foreground flex items-center gap-1.5">
                   <Phone className="w-3.5 h-3.5" />
-                  {t("lbl_phone")} *
+                  {t("lbl_phone")}
                 </label>
                 <input
                   value={phonenumber}
                   onChange={(e) =>
                     setPhonenumber(e.target.value)
                   }
-                  required
                   placeholder="01XXXXXXXXX"
                   className={inputCls}
                 />
@@ -256,8 +255,7 @@ export function CreateDirectOrderModal({
               type="submit"
               disabled={
                 loading ||
-                !customername.trim() ||
-                !phonenumber.trim()
+                !customername.trim()
               }
               className="flex-1 bg-primary hover:bg-primary/90 disabled:opacity-50 text-primary-foreground rounded-lg py-2.5 text-sm font-medium flex items-center justify-center gap-2 transition-all"
             >

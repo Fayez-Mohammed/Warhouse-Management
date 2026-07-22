@@ -131,10 +131,16 @@ export function CustomerReportTab() {
           <InvoiceTable
             title={t("report_unpaidInvoices")}
             rows={(data.unpaidinvoices as Invoice[]) ?? []}
+            invoiceType={1}
+            recipientName={data.customername as string}
+            onPaymentDone={() => handleSearch(query)}
           />
           <InvoiceTable
             title={t("report_unpaidReturns")}
             rows={(data.unpaidreturns as Invoice[]) ?? []}
+            invoiceType={4}
+            recipientName={data.customername as string}
+            onPaymentDone={() => handleSearch(query)}
           />
         </>
       )}

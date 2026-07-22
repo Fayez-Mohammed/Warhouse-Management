@@ -1,0 +1,215 @@
+POST
+/api/Reports/stock-movement-advanced
+تقرير حركة المخزون المتقدم الذي يقدم تحليلاً شاملاً لتغيرات مستويات المخزون لمجموعة من المنتجات أو الفئات خلال فترة زمنية محددة، بما في ذلك الكميات الداخلة والخارجة، المخزون الحالي، وأي تعديلات أو إرجاعات حدثت، مع إمكانية تصفية النتائج حسب الفئة أو المنتجات المحددة.
+
+
+Parameters
+Cancel
+Reset
+No parameters
+
+Request body
+
+application/json
+{
+  "categoryid": "83fb180f-50ab-416e-9d40-5578f1107065",
+  "productids": [
+    "19163dca-752f-4e95-b16f-f3aa0aba0944",
+"5018cba5-0406-41a1-b2ce-616a904a07c5"
+  ],
+  "fromdate": "2026-06-22T00:45:18.601Z",
+  "todate": "2026-07-22T00:45:18.601Z"
+}
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'POST' \
+  'https://warhouse-management.runasp.net/api/Reports/stock-movement-advanced' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI0NjU4YjFjMy1mNTc0LTQ4ZjktYWQ1NC03ZGE3NWY3MzIwZTkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODcyNzMwNDgsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.d1-XuVnwmsjYHGyeeMK7nYEYxtcaHAZBOad0yrOyR-c' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "categoryid": "83fb180f-50ab-416e-9d40-5578f1107065",
+  "productids": [
+    "19163dca-752f-4e95-b16f-f3aa0aba0944",
+"5018cba5-0406-41a1-b2ce-616a904a07c5"
+  ],
+  "fromdate": "2026-06-22T00:45:18.601Z",
+  "todate": "2026-07-22T00:45:18.601Z"
+}'
+Request URL
+https://warhouse-management.runasp.net/api/Reports/stock-movement-advanced
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40000380-0002-5b00-b63f-84710c7967bb",
+  "groupname": "تقرير الفئة المحددة",
+  "totalproductscount": 2,
+  "totalcurrentstock": 23,
+  "totalin": 31,
+  "totalout": 33,
+  "totalinpurchased": 24,
+  "totalinreturned": 2,
+  "totalinadjusted": 5,
+  "totalinupdatedbyemployee": 0,
+  "totaloutsold": 10,
+  "totaloutreturned": 3,
+  "totaloutadjusted": 4,
+  "totaloutupdatedbyemployee": 16,
+  "productssummary": [
+    {
+      "productid": "19163dca-752f-4e95-b16f-f3aa0aba0944",
+      "productname": "سكرر",
+      "sku": "skr1",
+      "currentstock": 7,
+      "totalin": 11,
+      "totalout": 29
+    },
+    {
+      "productid": "5018cba5-0406-41a1-b2ce-616a904a07c5",
+      "productname": "مبرد هواء",
+      "sku": "",
+      "currentstock": 16,
+      "totalin": 20,
+      "totalout": 4
+    }
+  ]
+}
+Response headers
+ access-control-allow-credentials: true 
+ access-control-allow-origin: https://warhouse-management.runasp.net 
+ content-encoding: br 
+ content-type: application/json; charset=utf-8 
+ date: Wed,22 Jul 2026 00:46:08 GMT 
+ server: Microsoft-IIS/10.0 
+ vary: Accept-Encoding,Origin 
+ x-powered-by: ASP.NET 
+Responses
+Code	Description	Links
+200	
+OK
+
+Media type
+
+text/plain
+Controls Accept header.
+Example Value
+Schema
+{
+  "groupname": "string",
+  "totalproductscount": 0,
+  "totalcurrentstock": 0,
+  "totalin": 0,
+  "totalout": 0,
+  "totalinpurchased": 0,
+  "totalinreturned": 0,
+  "totalinadjusted": 0,
+  "totalinupdatedbyemployee": 0,
+  "totaloutsold": 0,
+  "totaloutreturned": 0,
+  "totaloutadjusted": 0,
+  "totaloutupdatedbyemployee": 0,
+  "productssummary": [
+    {
+      "productid": "string",
+      "productname": "string",
+      "sku": "string",
+      "currentstock": 0,
+      "totalin": 0,
+      "totalout": 0
+    }
+  ]
+}
+No links
+
+GET
+/api/Reports/lookup
+
+
+Parameters
+Cancel
+Name	Description
+CategoryId
+string
+(query)
+83fb180f-50ab-416e-9d40-5578f1107065
+SearchTerm
+string
+(query)
+SearchTerm
+PageIndex
+integer($int32)
+(query)
+PageIndex
+PageSize
+integer($int32)
+(query)
+PageSize
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://warhouse-management.runasp.net/api/Reports/lookup?CategoryId=83fb180f-50ab-416e-9d40-5578f1107065' \
+  -H 'accept: text/plain' \
+  -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiMDM3Yzc3MC05MGFlLTRkMmQtOWU4OS1jMTk4YjdmNGUxNjYiLCJqdGkiOiI0NjU4YjFjMy1mNTc0LTQ4ZjktYWQ1NC03ZGE3NWY3MzIwZTkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBnbWFpbC5jb20iLCJVc2VyVHlwZSI6IlN5c3RlbUFkbWluIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiU3lzdGVtQWRtaW4iLCJleHAiOjE3ODcyNzMwNDgsImlzcyI6IkF1dGhBcGlTUUwiLCJhdWQiOiJBdXRoQXBpVXNlcnMifQ.d1-XuVnwmsjYHGyeeMK7nYEYxtcaHAZBOad0yrOyR-c'
+Request URL
+https://warhouse-management.runasp.net/api/Reports/lookup?CategoryId=83fb180f-50ab-416e-9d40-5578f1107065
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "statusCode": 200,
+  "message": "Success",
+  "traceId": "40001116-0004-c300-b63f-84710c7967bb",
+  "pageindex": 1,
+  "pagesize": 20,
+  "totalcount": 8,
+  "totalpages": 1,
+  "haspreviouspage": false,
+  "hasnextpage": false,
+  "items": [
+    {
+      "id": "19163dca-752f-4e95-b16f-f3aa0aba0944",
+      "name": "سكرر"
+    },
+    {
+      "id": "5018cba5-0406-41a1-b2ce-616a904a07c5",
+      "name": "مبرد هواء"
+    },
+    {
+      "id": "5cb92207-e3de-4793-a207-153689c45753",
+      "name": "شاي"
+    },
+    {
+      "id": "95c8de8b-f85a-4164-9450-fc5e228ea3c3",
+      "name": "فون"
+    },
+    {
+      "id": "b0dbad79-bc95-4a00-a72e-249905dc8ddf",
+      "name": "لاب"
+    },
+    {
+      "id": "d41cd227-964b-49c3-ab42-345cee42a405",
+      "name": "شاشة عرض"
+    },
+    {
+      "id": "db67d72c-d4ed-48b0-96cc-e33c2eeb7553",
+      "name": "سماعه"
+    },
+    {
+      "id": "fbac25f3-d5d2-4138-b60c-0a8eb2e6f4e7",
+      "name": "laptop"
+    }
+  ]
+}

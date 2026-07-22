@@ -54,8 +54,8 @@ export interface Order {
 }
 
 // ─── Reports ─────────────────────────────────────────────────────────────────────
-export type ReportTab = "sales" | "stock" | "customer" | "salesrep" | "supplier";
-export interface Invoice { invoicecode: number; originalamount: number; remainingamount: number; invoicedate: string; }
+export type ReportTab = "sales" | "stock" | "customer" | "salesrep" | "supplier" | "consolidated";
+export interface Invoice { id?: string; invoiceid?: string; invoicecode: number; originalamount: number; remainingamount: number; invoicedate: string; }
 
 // ─── Returns ─────────────────────────────────────────────────────────────────────
 export interface OrderReturnItem {

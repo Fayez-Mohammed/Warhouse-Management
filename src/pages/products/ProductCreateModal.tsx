@@ -6,6 +6,7 @@ import { API, authHeaders, apiFetch } from "../../lib/api";
 import { useLang } from "../../lib/i18n";
 import { Overlay } from "../../components/Overlay";
 import { SupplierAutocomplete } from "../../components/autocomplete/SupplierAutocomplete";
+import { CategoryAutocomplete } from "../../components/autocomplete/CategoryAutocomplete";
 
 interface NewProductRow {
   productname: string;
@@ -206,16 +207,9 @@ export function ProductCreateModal({
                   <label className="text-xs text-muted-foreground">
                     {t("col_category")} *
                   </label>
-                  <input
+                  <CategoryAutocomplete
                     value={row.categoryname}
-                    onChange={(e) =>
-                      updateRow(
-                        i,
-                        "categoryname",
-                        e.target.value,
-                      )
-                    }
-                    required
+                    onChange={(v) => updateRow(i, "categoryname", v)}
                     placeholder="عام"
                     className={inputCls}
                   />

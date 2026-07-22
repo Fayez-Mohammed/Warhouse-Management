@@ -119,6 +119,9 @@ export function SalesRepReportTab() {
           <InvoiceTable
             title={t("report_unpaidCommissions")}
             rows={(data.unpaidcommissions as Invoice[]) ?? []}
+            invoiceType={2}
+            recipientName={data.salesrepname as string}
+            onPaymentDone={() => handleSearch(query)}
           />
         </>
       )}

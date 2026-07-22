@@ -7,12 +7,14 @@ import {
   Users,
   UserCheck,
   Truck,
+  BookOpen,
 } from "lucide-react";
 import { SalesReportTab } from "./SalesReportTab";
 import { StockMovementTab } from "./StockMovementTab";
 import { CustomerReportTab } from "./CustomerReportTab";
 import { SalesRepReportTab } from "./SalesRepReportTab";
 import { SupplierReportTab } from "./SupplierReportTab";
+import { ConsolidatedStatementTab } from "./ConsolidatedStatementTab";
 import { useLang } from "../../lib/i18n";
 import type { ReportTab } from "../../types";
 
@@ -45,6 +47,11 @@ const REPORT_TABS: {
     value: "supplier",
     labelKey: "tab_supplier",
     icon: <Truck className="w-4 h-4" />,
+  },
+  {
+    value: "consolidated",
+    labelKey: "tab_consolidated",
+    icon: <BookOpen className="w-4 h-4" />,
   },
 ];
 
@@ -79,6 +86,7 @@ export function ReportsPage() {
         {tab === "customer" && <CustomerReportTab />}
         {tab === "salesrep" && <SalesRepReportTab />}
         {tab === "supplier" && <SupplierReportTab />}
+        {tab === "consolidated" && <ConsolidatedStatementTab />}
       </div>
     </div>
   );

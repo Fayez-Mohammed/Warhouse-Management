@@ -127,10 +127,16 @@ export function SupplierReportTab() {
           <InvoiceTable
             title={t("report_unpaidInvoices")}
             rows={(data.unpaidinvoices as Invoice[]) ?? []}
+            invoiceType={3}
+            recipientName={data.suppliername as string}
+            onPaymentDone={() => handleSearch(query)}
           />
           <InvoiceTable
             title={t("report_unpaidReturns")}
             rows={(data.unpaidreturns as Invoice[]) ?? []}
+            invoiceType={5}
+            recipientName={data.suppliername as string}
+            onPaymentDone={() => handleSearch(query)}
           />
         </>
       )}

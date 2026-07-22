@@ -19,9 +19,11 @@ function detailsUrl(invoice: InvoiceListItem): string {
 export function InvoiceDetailsModal({
   invoice,
   onClose,
+  autoPrint = false,
 }: {
   invoice: InvoiceListItem;
   onClose: () => void;
+  autoPrint?: boolean;
 }) {
   const { t } = useLang();
   const [details, setDetails] = useState<InvoiceDetails | null>(null);
@@ -36,6 +38,7 @@ export function InvoiceDetailsModal({
         });
         const data = await res.json();
         setDetails(data);
+        if (autoPrint) window.print();
       } catch {
         toast.error("Failed to load invoice details.");
       } finally {

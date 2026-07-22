@@ -21,6 +21,7 @@ import { API, authHeaders, apiFetch } from "../../lib/api";
 import { useLang } from "../../lib/i18n";
 import { formatDate } from "../../lib/utils";
 import { PaySupplierModal } from "./PaySupplierModal";
+import { PayCustomerModal } from "./PayCustomerModal";
 import { InvoiceProductsModal } from "./InvoiceProductsModal";
 import { InvoiceDetailsModal } from "./InvoiceDetailsModal";
 import {
@@ -33,6 +34,7 @@ const PAGE_SIZE = 20;
 
 type ModalState =
   | { type: "pay-supplier"; invoice: InvoiceListItem }
+  | { type: "pay-customer"; invoice: InvoiceListItem }
   | { type: "products"; invoice: InvoiceListItem }
   | { type: "details"; invoice: InvoiceListItem };
 
@@ -276,8 +278,10 @@ export function InvoicesPage() {
                   const isSupplierInvoice = inv.type === 3;
                   const isSupplierBill =
                     inv.type === 3 || inv.type === 5;
-                  // Detail endpoints: customer endpoint for customer (1),
-                  // commission (2) & return (4); supplier endpoint for supplier (3,5)
+                  // types 1=Customer, 2=Commission, 4=Return → collect payment from customer/sales-rep
+                  const isCustomerBill =
+                    (inv.type === 1 || inv.type === 2 || inv.type === 4) &&
+                    inv.remainingamount > 0;
                   const hasDetails =
                     inv.type === 1 ||
                     inv.type === 2 ||
@@ -387,6 +391,20 @@ export function InvoicesPage() {
                               <Package2 className="w-3.5 h-3.5" />
                             </button>
                           )}
+                          {isCustomerBill && (
+                            <button
+                              onClick={() =>
+                                setModal({
+                                  type: "pay-customer",
+                                  invoice: inv,
+                                })
+                              }
+                              title={t("tooltip_collectPayment")}
+                              className="w-7 h-7 rounded-md flex items-center justify-center text-muted-foreground hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"
+                            >
+                              <CreditCard className="w-3.5 h-3.5" />
+                            </button>
+                          )}
                           {isSupplierBill &&
                             inv.remainingamount > 0 && (
                               <button
@@ -397,7 +415,7 @@ export function InvoicesPage() {
                                   })
                                 }
                                 title={t("tooltip_paySupplier")}
-                                className="w-7 h-7 rounded-md flex items-center justify-center text-muted-foreground hover:text-emerald-500 hover:bg-emerald-500/10 transition-all"
+                                className="w-7 h-7 rounded-md flex items-center justify-center text-muted-foreground hover:text-amber-500 hover:bg-amber-500/10 transition-all"
                               >
                                 <CreditCard className="w-3.5 h-3.5" />
                               </button>
@@ -450,6 +468,13 @@ export function InvoicesPage() {
         </div>
       )}
 
+      {modal?.type === "pay-customer" && (
+        <PayCustomerModal
+          invoice={modal.invoice}
+          onClose={() => setModal(null)}
+          onDone={afterMutation}
+        />
+      )}
       {modal?.type === "pay-supplier" && (
         <PaySupplierModal
           invoice={modal.invoice}
